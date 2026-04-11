@@ -18,16 +18,18 @@ const handleSystemThemeChange = () => {
 };
 
 export function initializeTheme() {
-    const savedAppearance = (localStorage.getItem('appearance') as Appearance) || 'system';
+    const savedAppearance = localStorage.getItem('appearance') as Appearance | null;
+    const normalizedAppearance: Appearance = savedAppearance === 'light' ? 'light' : 'light';
 
-    applyTheme(savedAppearance);
+    localStorage.setItem('appearance', normalizedAppearance);
+    applyTheme(normalizedAppearance);
 
     // Add the event listener for system theme changes...
     mediaQuery.addEventListener('change', handleSystemThemeChange);
 }
 
 export function useAppearance() {
-    const [appearance, setAppearance] = useState<Appearance>('system');
+    const [appearance, setAppearance] = useState<Appearance>('light');
 
     const updateAppearance = (mode: Appearance) => {
         setAppearance(mode);
@@ -37,7 +39,7 @@ export function useAppearance() {
 
     useEffect(() => {
         const savedAppearance = localStorage.getItem('appearance') as Appearance | null;
-        updateAppearance(savedAppearance || 'system');
+        updateAppearance(savedAppearance === 'light' ? 'light' : 'light');
 
         return () => mediaQuery.removeEventListener('change', handleSystemThemeChange);
     }, []);

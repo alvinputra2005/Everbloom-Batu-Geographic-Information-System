@@ -152,7 +152,37 @@
         @apply border-border;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         @apply bg-background text-foreground;
+    }
+}
+
+@layer base {
+    :root {
+        --app-surface: #faf9f4;
+        --app-surface-muted: #f5f4ef;
+        --app-surface-elevated: #1b1c19;
+        --app-surface-glass: rgba(250, 249, 244, 0.82);
+        --app-primary: #135227;
+        --app-primary-strong: #2f6b3d;
+        --app-text: #1b1c19;
+        --app-text-muted: #44483d;
+        --app-chip: #dff4da;
+    }
+
+    .dark {
+        --app-surface: #1b1c19;
+        --app-surface-muted: #232420;
+        --app-surface-elevated: #11120f;
+        --app-surface-glass: rgba(27, 28, 25, 0.82);
+        --app-primary: #b1f2b8;
+        --app-primary-strong: #96d59d;
+        --app-text: #f2f1ec;
+        --app-text-muted: #c4c8ba;
+        --app-chip: rgba(177, 242, 184, 0.14);
     }
 }
