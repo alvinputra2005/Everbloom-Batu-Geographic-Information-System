@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
 @plugin 'tailwindcss-animate';
@@ -58,14 +59,6 @@
     --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
     *,
     ::after,
@@ -170,8 +163,8 @@
         --app-primary: #135227;
         --app-primary-strong: #2f6b3d;
         --app-text: #1b1c19;
-        --app-text-muted: #44483d;
-        --app-chip: #dff4da;
+        --app-text-muted: #414940;
+        --app-chip: #acf59a;
     }
 
     .dark {
@@ -184,5 +177,23 @@
         --app-text: #f2f1ec;
         --app-text-muted: #c4c8ba;
         --app-chip: rgba(177, 242, 184, 0.14);
+    }
+}
+
+@layer components {
+    .home-bloom-page {
+        font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .chlorophyll-gradient {
+        background: linear-gradient(135deg, #135227 0%, #2f6b3d 100%);
+    }
+
+    .ambient-bloom {
+        box-shadow: 0 12px 40px rgba(27, 28, 25, 0.06);
+    }
+
+    .home-bloom-card {
+        box-shadow: 0 12px 40px rgba(27, 28, 25, 0.06);
     }
 }
