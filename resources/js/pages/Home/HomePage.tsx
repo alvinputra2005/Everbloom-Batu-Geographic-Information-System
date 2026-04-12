@@ -238,7 +238,7 @@ export default function HomePage() {
                                         <CloudRain className="h-6 w-6 text-[var(--app-primary)]" />
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-bold">March (Wet Season)</h4>
+                                        <h4 className="text-lg font-bold">Februari (Musim Hujan)</h4>
                                         <p className="mt-1 text-sm text-[var(--app-text-muted)]">
                                             Curah hujan yang tinggi membuat banyak tanaman tetap tumbuh subur. Periode ini cocok untuk menikmati wisata kebun bunga dan beberapa kebun stroberi yang tetap aktif menerima kunjungan.
                                         </p>
