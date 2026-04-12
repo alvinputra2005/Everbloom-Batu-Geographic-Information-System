@@ -16,10 +16,10 @@ interface NavbarProps {
 }
 
 const defaultItems: NavbarItem[] = [
-    { label: 'Home', href: '#', active: true },
+    { label: 'Home', href: '/', active: true },
     { label: 'Recommendations', href: '#recommendations' },
     { label: 'Map', href: '#map' },
-    { label: 'Calendar', href: '#calendar' },
+    { label: 'Calendar', href: '/calendar' },
     { label: 'About', href: '#about' },
 ];
 
