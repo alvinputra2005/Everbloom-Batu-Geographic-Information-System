@@ -158,9 +158,14 @@ export default function HomePage() {
                 </section>
 
                 <section id="recommendations" className="mx-auto mb-24 max-w-7xl px-6">
-                    <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                    <motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.45 }}
+                        className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
+                    >
                         <div>
-                            <span className="text-sm font-bold tracking-[0.3em] text-[var(--app-primary)] uppercase">Explore Batu</span>
                             <h2 className="mt-2 text-4xl font-bold">Destinasi Populer</h2>
                             <p className="mt-3 max-w-2xl text-[var(--app-text-muted)]">
                                 Tampilkan destinasi buah dan bunga terbaik di Batu dengan foto lokal yang sudah disesuaikan agar tampil seragam.
@@ -172,9 +177,15 @@ export default function HomePage() {
                         >
                             Lihat Semua <ArrowRight className="h-5 w-5" />
                         </Link>
-                    </div>
+                    </motion.div>
 
-                    <div className="mb-8 flex flex-wrap gap-3">
+                    <motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.25 }}
+                        transition={{ duration: 0.45, delay: 0.08 }}
+                        className="mb-8 flex flex-wrap gap-3"
+                    >
                         {destinationFilters.map((filter) => (
                             <button
                                 key={filter.key}
@@ -189,11 +200,19 @@ export default function HomePage() {
                                 {filter.label}
                             </button>
                         ))}
-                    </div>
+                    </motion.div>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-                        {featuredDestinations.map((destination) => (
-                            <DestinationCard key={destination.slug} destination={destination} />
+                        {featuredDestinations.map((destination, index) => (
+                            <motion.div
+                                key={destination.slug}
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.45, delay: index * 0.08 }}
+                            >
+                                <DestinationCard destination={destination} />
+                            </motion.div>
                         ))}
                     </div>
                 </section>
@@ -208,7 +227,7 @@ export default function HomePage() {
                             className="space-y-8 lg:w-1/2"
                         >
                             <div>
-                                <h2 className="mb-6 text-4xl font-bold">Panduan Musim Wisata Agro</h2>
+                                <h2 className="mb-6 text-4xl font-bold">Panduan Musim Agrowisata</h2>
                                 <p className="text-lg leading-relaxed text-[var(--app-text-muted)]">
                                     Agrowisata Batu dipengaruhi oleh curah hujan, suhu dataran tinggi, dan siklus panen setiap komoditas. Dengan memahami musim panen dan masa mekar, kamu bisa memilih waktu kunjungan terbaik.
                                 </p>
