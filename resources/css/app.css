@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
 @plugin 'tailwindcss-animate';
@@ -184,5 +185,40 @@
         --app-text: #f2f1ec;
         --app-text-muted: #c4c8ba;
         --app-chip: rgba(177, 242, 184, 0.14);
+    }
+}
+
+@layer components {
+    .recommendation-experience {
+        --rec-background: #faf9f4;
+        --rec-on-surface: #1b1c19;
+        --rec-on-surface-variant: #414940;
+        --rec-primary: #135227;
+        --rec-primary-container: #2f6b3d;
+        --rec-on-primary-container: #a8e9af;
+        --rec-secondary: #2a6c22;
+        --rec-secondary-container: #acf59a;
+        --rec-on-secondary-container: #317228;
+        --rec-secondary-fixed: #acf59a;
+        --rec-on-secondary-fixed: #002200;
+        --rec-tertiary: #004f5f;
+        --rec-tertiary-fixed: #b1ecff;
+        --rec-on-tertiary-fixed: #001f27;
+        --rec-surface-lowest: #ffffff;
+        --rec-surface-low: #f5f4ef;
+        --rec-surface-high: #e9e8e3;
+        --rec-surface-highest: #e3e3de;
+        --rec-outline-variant: #c0c9bd;
+        background-color: var(--rec-background);
+        color: var(--rec-on-surface);
+        font-family: 'Plus Jakarta Sans', var(--font-sans);
+    }
+
+    .chlorophyll-gradient {
+        background: linear-gradient(135deg, var(--rec-primary) 0%, var(--rec-primary-container) 100%);
+    }
+
+    .ambient-bloom {
+        box-shadow: 0 12px 40px rgba(27, 28, 25, 0.06);
     }
 }

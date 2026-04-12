@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { CalendarDays, Home, Info, Leaf, Map } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -24,18 +24,37 @@ const iconMap = {
 };
 
 const defaultItems: MobileBottomNavItem[] = [
-    { label: 'Home', href: '#', icon: 'home', active: true },
-    { label: 'Explore', href: '#recommendations', icon: 'explore' },
+    { label: 'Home', href: '/', icon: 'home' },
+    { label: 'Explore', href: '/recommendations', icon: 'explore' },
     { label: 'Map', href: '#map', icon: 'map' },
     { label: 'Calendar', href: '#calendar', icon: 'calendar' },
     { label: 'About', href: '#about', icon: 'about' },
 ];
 
 export default function MobileBottomNav({ items = defaultItems, className }: MobileBottomNavProps) {
+    const { url } = usePage();
+    const pathname = url.split('?')[0] || '/';
+
+    const isItemActive = (item: MobileBottomNavItem) => {
+        if (typeof item.active === 'boolean') {
+            return item.active;
+        }
+
+        if (!item.href.startsWith('/')) {
+            return false;
+        }
+
+        if (item.href === '/') {
+            return pathname === '/';
+        }
+
+        return pathname === item.href || pathname.startsWith(`${item.href}/`);
+    };
+
     return (
         <div
             className={cn(
-                'fixed inset-x-0 bottom-0 z-50 flex items-center justify-around rounded-t-[3rem] border-t border-white/40 bg-white/85 px-4 pb-6 pt-3 shadow-[0_-12px_40px_rgba(27,28,25,0.06)] backdrop-blur-2xl md:hidden dark:bg-[var(--app-surface-elevated)]/85',
+                'fixed inset-x-0 bottom-0 z-50 flex items-center justify-around rounded-t-[3rem] border-t border-white/40 bg-white/85 px-4 pt-3 pb-6 shadow-[0_-12px_40px_rgba(27,28,25,0.06)] backdrop-blur-2xl md:hidden dark:bg-[var(--app-surface-elevated)]/85',
                 className,
             )}
         >
@@ -48,7 +67,7 @@ export default function MobileBottomNav({ items = defaultItems, className }: Mob
                         href={item.href}
                         className={cn(
                             'flex min-w-14 flex-col items-center justify-center gap-1 p-2 text-[var(--app-text-muted)] transition hover:opacity-80',
-                            item.active && 'scale-110 -translate-y-2 rounded-full bg-[var(--app-primary-strong)] px-3 py-3 text-white',
+                            isItemActive(item) && '-translate-y-2 scale-110 rounded-full bg-[var(--app-primary-strong)] px-3 py-3 text-white',
                         )}
                     >
                         <Icon className="h-5 w-5" />

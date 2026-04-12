@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { Bell, CircleUserRound } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -16,8 +16,8 @@ interface NavbarProps {
 }
 
 const defaultItems: NavbarItem[] = [
-    { label: 'Home', href: '#', active: true },
-    { label: 'Recommendations', href: '#recommendations' },
+    { label: 'Home', href: '/' },
+    { label: 'Recommendations', href: '/recommendations' },
     { label: 'Map', href: '#map' },
     { label: 'Calendar', href: '#calendar' },
     { label: 'About', href: '#about' },
@@ -27,6 +27,25 @@ const iconButtonClassName =
     'inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--app-primary)] transition hover:bg-[var(--app-surface-muted)]';
 
 export default function Navbar({ brand = 'AgroVisit Batu', items = defaultItems, className }: NavbarProps) {
+    const { url } = usePage();
+    const pathname = url.split('?')[0] || '/';
+
+    const isItemActive = (item: NavbarItem) => {
+        if (typeof item.active === 'boolean') {
+            return item.active;
+        }
+
+        if (!item.href.startsWith('/')) {
+            return false;
+        }
+
+        if (item.href === '/') {
+            return pathname === '/';
+        }
+
+        return pathname === item.href || pathname.startsWith(`${item.href}/`);
+    };
+
     return (
         <nav
             className={cn(
@@ -49,7 +68,7 @@ export default function Navbar({ brand = 'AgroVisit Batu', items = defaultItems,
                             href={item.href}
                             className={cn(
                                 'border-b-2 border-transparent pb-1 text-[var(--app-text-muted)] transition-colors hover:text-[var(--app-primary)]',
-                                item.active && 'border-[var(--app-primary)] font-bold text-[var(--app-primary)]',
+                                isItemActive(item) && 'border-[var(--app-primary)] font-bold text-[var(--app-primary)]',
                             )}
                         >
                             {item.label}

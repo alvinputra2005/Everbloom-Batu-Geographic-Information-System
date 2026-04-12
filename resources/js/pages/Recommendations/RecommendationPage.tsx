@@ -1,3 +1,1 @@
-export default function RecommendationPage() {
-    return <div>RecommendationPage</div>;
-}
+export { default } from './RecommendationResultPage';
