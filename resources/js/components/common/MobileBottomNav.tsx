@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 export interface MobileBottomNavItem {
     label: string;
     href: string;
-    icon: 'home' | 'explore' | 'map' | 'calendar' | 'about';
+    icon: 'home' | 'explore' | 'calendar' | 'about';
     active?: boolean;
 }
 
@@ -18,16 +18,15 @@ interface MobileBottomNavProps {
 const iconMap = {
     home: Home,
     explore: Leaf,
-    map: Map,
     calendar: CalendarDays,
     about: Info,
 };
 
 const defaultItems: MobileBottomNavItem[] = [
-    { label: 'Home', href: '/', icon: 'home' },
+    { label: 'Home', href: '/', icon: 'home', active: true },
     { label: 'Explore', href: '/recommendations', icon: 'explore' },
     { label: 'Map', href: '#map', icon: 'map' },
-    { label: 'Calendar', href: '#calendar', icon: 'calendar' },
+    { label: 'Calendar', href: '/calendar', icon: 'calendar' },
     { label: 'About', href: '#about', icon: 'about' },
 ];
 

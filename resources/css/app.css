@@ -232,6 +232,10 @@
         font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
     }
 
+    .calendar-rhythms-page {
+        font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    }
+
     .chlorophyll-gradient {
         background: linear-gradient(135deg, #135227 0%, #2f6b3d 100%);
     }
@@ -239,6 +243,15 @@
     .ambient-bloom,
     .home-bloom-card {
         box-shadow: 0 12px 40px rgba(27, 28, 25, 0.06);
+    }
+
+    .calendar-hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .calendar-hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 }
 
