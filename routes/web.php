@@ -11,6 +11,10 @@ Route::get('/recommendations', function () {
     return Inertia::render('Recommendations/RecommendationResultPage');
 })->name('recommendations');
 
+Route::get('/destination', function () {
+    return Inertia::render('Destination/DestinationDetailPage');
+})->name('destination.show');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');

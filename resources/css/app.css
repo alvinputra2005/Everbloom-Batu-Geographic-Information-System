@@ -221,4 +221,34 @@
     .ambient-bloom {
         box-shadow: 0 12px 40px rgba(27, 28, 25, 0.06);
     }
+
+    .destination-detail-experience {
+        --detail-background: #faf9f4;
+        --detail-on-surface: #1b1c19;
+        --detail-on-surface-variant: #414940;
+        --detail-primary: #135227;
+        --detail-primary-container: #2f6b3d;
+        --detail-on-primary-container: #a8e9af;
+        --detail-primary-fixed: #dff4da;
+        --detail-primary-fixed-dim: #c5e8bc;
+        --detail-secondary-fixed: #acf59a;
+        --detail-tertiary: #004f5f;
+        --detail-tertiary-fixed: #b1ecff;
+        --detail-surface-lowest: #ffffff;
+        --detail-surface-low: #f5f4ef;
+        --detail-surface-high: #e9e8e3;
+        --detail-surface-highest: #e3e3de;
+        --detail-outline: #8c9387;
+        background-color: var(--detail-background);
+        color: var(--detail-on-surface);
+        font-family: 'Plus Jakarta Sans', var(--font-sans);
+    }
+}
+
+@utility chlorophyll-gradient {
+  background: linear-gradient(135deg, #135227 0%, #2f6b3d 100%);
+}
+
+@utility ambient-bloom {
+  box-shadow: 0 12px 40px rgba(27, 28, 25, 0.06);
 }
