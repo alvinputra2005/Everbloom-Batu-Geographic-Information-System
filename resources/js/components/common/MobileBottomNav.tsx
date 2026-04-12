@@ -1,12 +1,12 @@
 import { Link } from '@inertiajs/react';
-import { CalendarDays, Home, Info, Leaf, Map } from 'lucide-react';
+import { CalendarDays, Home, Info, Leaf } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
 export interface MobileBottomNavItem {
     label: string;
     href: string;
-    icon: 'home' | 'explore' | 'map' | 'calendar' | 'about';
+    icon: 'home' | 'explore' | 'calendar' | 'about';
     active?: boolean;
 }
 
@@ -18,7 +18,6 @@ interface MobileBottomNavProps {
 const iconMap = {
     home: Home,
     explore: Leaf,
-    map: Map,
     calendar: CalendarDays,
     about: Info,
 };
@@ -26,7 +25,6 @@ const iconMap = {
 const defaultItems: MobileBottomNavItem[] = [
     { label: 'Home', href: '/', icon: 'home', active: true },
     { label: 'Explore', href: '#recommendations', icon: 'explore' },
-    { label: 'Map', href: '#map', icon: 'map' },
     { label: 'Calendar', href: '/calendar', icon: 'calendar' },
     { label: 'About', href: '#about', icon: 'about' },
 ];

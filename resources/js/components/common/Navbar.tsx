@@ -16,11 +16,10 @@ interface NavbarProps {
 }
 
 const defaultItems: NavbarItem[] = [
-    { label: 'Home', href: '/', active: true },
-    { label: 'Recommendations', href: '#recommendations' },
-    { label: 'Map', href: '#map' },
-    { label: 'Calendar', href: '/calendar' },
-    { label: 'About', href: '#about' },
+    { label: 'Beranda', href: '/', active: true },
+    { label: 'Rekomendasi', href: '#recommendations' },
+    { label: 'Kalender', href: '/calendar' },
+    { label: 'Tentang', href: '#about' },
 ];
 
 const iconButtonClassName =
