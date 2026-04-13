@@ -26,7 +26,7 @@ export default function HeroSection({ selectedDate, onSelectDate }: HeroSectionP
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 0.5 }}
-                    className="mb-10 text-5xl leading-[1.1] font-bold tracking-tight text-[var(--app-text)] md:text-6xl"
+                    className="mb-14 text-5xl leading-[1.1] font-bold tracking-tight text-[var(--app-text)] md:text-6xl"
                 >
                     Temukan waktu terbaik untuk mengunjungi destinasi <span className="text-[var(--app-primary)] italic">agrowisata</span>
                 </motion.h1>
@@ -35,7 +35,7 @@ export default function HeroSection({ selectedDate, onSelectDate }: HeroSectionP
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3, duration: 0.45 }}
-                    className="ambient-bloom flex flex-col items-center gap-4 rounded-[2rem] bg-white/80 p-4 backdrop-blur-2xl md:flex-row md:p-6"
+                    className="ambient-bloom flex flex-col items-center gap-4 rounded-[2rem] bg-white/80 p-4 backdrop-blur-2xl md:flex-row md:p-2"
                 >
                     <div className="relative w-full text-left md:flex-1">
                         <HomeVisitDateFilter selectedDate={selectedDate} onSelectDate={onSelectDate} />
@@ -52,7 +52,7 @@ export default function HeroSection({ selectedDate, onSelectDate }: HeroSectionP
                     </div>
                     <button
                         type="button"
-                        className="chlorophyll-gradient w-full rounded-[1.25rem] px-10 py-4 font-bold text-white shadow-lg shadow-[color:rgba(19,82,39,0.2)] transition-all hover:translate-y-0.5 md:w-auto"
+                        className="chlorophyll-gradient w-full rounded-[1.25rem] px-10 py-2 font-bold text-white shadow-lg shadow-[color:rgba(19,82,39,0.2)] transition-all hover:translate-y-0.5 md:w-auto"
                     >
                         Dapatkan rekomendasi
                     </button>
