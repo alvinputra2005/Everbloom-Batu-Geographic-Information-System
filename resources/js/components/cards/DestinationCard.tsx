@@ -6,28 +6,33 @@ import type { RecommendationDestination } from '@/features/recommendations/types
 
 interface DestinationCardProps {
     destination: RecommendationDestination;
+    index: number;
+    hasEnteredView: boolean;
 }
 
-const cardVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.35,
-            ease: 'easeOut',
-        },
-    },
-};
+const hiddenState = { opacity: 0, y: 24 };
+const visibleState = { opacity: 1, y: 0 };
+const exitState = { opacity: 0, y: 16 };
 
-export default function DestinationCard({ destination }: DestinationCardProps) {
+export default function DestinationCard({ destination, index, hasEnteredView }: DestinationCardProps) {
     const isPeak = destination.status === 'PEAK';
     const isAvailable = destination.status === 'AVAILABLE';
     const isOffSeason = destination.status === 'OFF-SEASON';
 
     return (
         <motion.article
-            variants={cardVariants}
+            layout
+            initial={hasEnteredView ? false : hiddenState}
+            animate={hasEnteredView ? visibleState : hiddenState}
+            transition={{
+                duration: 0.35,
+                ease: 'easeOut',
+                delay: hasEnteredView ? Math.min(index * 0.06, 0.3) : 0,
+                layout: {
+                    duration: 0.25,
+                    ease: 'easeOut',
+                },
+            }}
             className="ambient-bloom group flex h-full flex-col rounded-xl border border-[var(--rec-outline-variant)]/10 bg-[var(--rec-surface-lowest)] p-3"
         >
             <div className="relative mb-3 h-48 overflow-hidden rounded-lg">
