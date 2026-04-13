@@ -8,7 +8,7 @@ interface ReviewSummaryProps {
 
 export default function ReviewSummary({ destination }: ReviewSummaryProps) {
     return (
-        <div className="rounded-xl border border-[var(--detail-surface-high)] bg-[var(--detail-surface-lowest)] p-6 shadow-sm">
+        <div className="rounded-4xl border border-[var(--detail-surface-high)] bg-[var(--detail-surface-lowest)] p-6 shadow-sm">
             <h3 className="mb-6 text-lg font-bold">Ulasan Pengunjung</h3>
             <div className="space-y-4">
                 {destination.reviewMetrics.map((review, index) => (

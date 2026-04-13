@@ -357,8 +357,8 @@ class AgrotourismCatalog
         ];
 
         $audienceByCategory = [
-            'buah' => 'Keluarga & Rombongan',
-            'bunga' => 'Keluarga & Fotografer',
+            'buah' => 'Keluarga',
+            'bunga' => 'Keluarga',
         ];
 
         $facilitiesByCategory = [

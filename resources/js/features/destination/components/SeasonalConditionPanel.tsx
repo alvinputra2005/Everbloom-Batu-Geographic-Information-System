@@ -14,7 +14,7 @@ const monthToneClassNames = {
 
 export default function SeasonalConditionPanel({ destination }: SeasonalConditionPanelProps) {
     return (
-        <section className="rounded-xl border border-[var(--detail-primary-fixed-dim)]/20 bg-[color:rgba(197,232,188,0.1)] p-8 pb-24 md:p-12">
+        <section className="rounded-4xl border border-[var(--detail-primary-fixed-dim)]/20 bg-[color:rgba(172,245,154,0.22)] p-8 pb-24 md:p-12">
             <div className="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
                 <div>
                     <h2 className="text-2xl font-bold text-[var(--detail-primary)]">Kondisi Musim & Waktu Kunjungan</h2>

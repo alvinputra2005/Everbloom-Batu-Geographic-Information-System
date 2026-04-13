@@ -47,14 +47,14 @@ interface InsightMonth {
 
 const navbarItems: NavbarItem[] = [
     { label: 'Beranda', href: '/' },
-    { label: 'Rekomendasi', href: '/#recommendations' },
+    { label: 'Destinasi', href: '/destinations' },
     { label: 'Kalender', href: '/calendar', active: true },
     { label: 'Tentang', href: '/#about' },
 ];
 
 const mobileNavItems: MobileBottomNavItem[] = [
     { label: 'Beranda', href: '/', icon: 'home' },
-    { label: 'Rekomendasi', href: '/#recommendations', icon: 'explore' },
+    { label: 'Destinasi', href: '/destinations', icon: 'explore' },
     { label: 'Kalender', href: '/calendar', icon: 'calendar', active: true },
     { label: 'Tentang', href: '/#about', icon: 'about' },
 ];

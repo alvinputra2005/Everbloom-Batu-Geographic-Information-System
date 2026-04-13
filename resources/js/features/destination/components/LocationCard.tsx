@@ -9,11 +9,11 @@ interface LocationCardProps {
 
 export default function LocationCard({ destination }: LocationCardProps) {
     return (
-        <div className="overflow-hidden rounded-xl border border-[var(--detail-surface-high)] bg-[var(--detail-surface-lowest)] p-6 shadow-sm">
+        <div className="overflow-hidden rounded-4xl border border-[var(--detail-surface-high)] bg-[var(--detail-surface-lowest)] p-6 shadow-sm">
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold">
                 <MapIcon className="text-[var(--detail-tertiary)]" size={20} /> Lokasi Presisi
             </h3>
-            <div className="relative mb-4 aspect-square overflow-hidden rounded-lg bg-[var(--detail-surface-highest)]">
+            <div className="relative mb-4 h-52 overflow-hidden rounded-lg bg-[var(--detail-surface-highest)] md:h-56">
                 <img alt={destination.mapImageAlt} className="h-full w-full object-cover opacity-60 grayscale" src={destination.mapImage} />
                 <div className="absolute inset-0 flex items-center justify-center">
                     <div className="rounded-full bg-[var(--detail-primary)] p-3 text-white shadow-lg">
