@@ -4,6 +4,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+$destinationSlugs = [
+    'kusuma-agro',
+    'petik-apel-kebun-8',
+    'agrowisata-petik-jeruk',
+    'agrorakyat-apple-packing',
+    'lumbung-strawberry',
+    'taman-bunga-selecta',
+    'batu-love-garden',
+    'kebun-hortensia',
+    'wisata-kebun-bunga-coban-talun',
+    'ladang-bunga-matahari',
+    'kebun-apel-bumiaji',
+    'pusat-bunga-sidomulyo',
+];
+
 Route::get('/', function () {
     return Inertia::render('Home/HomePage');
 })->name('home');
@@ -30,9 +45,15 @@ Route::get('/destinations', function (Request $request) {
 
 Route::redirect('/recommendations', '/destinations', 301);
 
-Route::get('/destination', function () {
-    return Inertia::render('Destination/DestinationDetailPage');
-})->name('destination.show');
+Route::redirect('/destination', '/destinations/kusuma-agro', 301);
+
+Route::get('/destinations/{slug}', function (string $slug) use ($destinationSlugs) {
+    abort_unless(in_array($slug, $destinationSlugs, true), 404);
+
+    return Inertia::render('Destination/DestinationDetailPage', [
+        'slug' => $slug,
+    ]);
+})->name('destinations.show');
 
 Route::get('/calendar', function () {
     return Inertia::render('Calendar/HarvestCalendarPage');

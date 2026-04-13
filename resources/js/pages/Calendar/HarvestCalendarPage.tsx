@@ -6,8 +6,6 @@ import {
     CheckCircle2,
     CloudRain,
     Droplets,
-    Flower2,
-    Leaf,
     Sprout,
     Thermometer,
 } from 'lucide-react';

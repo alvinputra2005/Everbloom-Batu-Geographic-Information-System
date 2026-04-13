@@ -12,7 +12,6 @@ interface DestinationCardProps {
 
 const hiddenState = { opacity: 0, y: 24 };
 const visibleState = { opacity: 1, y: 0 };
-const exitState = { opacity: 0, y: 16 };
 
 export default function DestinationCard({ destination, index, hasEnteredView }: DestinationCardProps) {
     const isPeak = destination.status === 'PEAK';
