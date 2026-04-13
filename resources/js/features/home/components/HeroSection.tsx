@@ -1,7 +1,11 @@
+import { router } from '@inertiajs/react';
+import { format } from 'date-fns';
 import { ChevronDown, Leaf } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useState } from 'react';
 
 import HomeVisitDateFilter from '@/features/home/components/HomeVisitDateFilter';
+import type { HomeDestinationCategory } from '@/features/home/types';
 
 interface HeroSectionProps {
     selectedDate: Date | null;
@@ -9,6 +13,22 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ selectedDate, onSelectDate }: HeroSectionProps) {
+    const [selectedCategory, setSelectedCategory] = useState<HomeDestinationCategory>('all');
+
+    const handleSubmit = () => {
+        const filters: { date?: string; category?: Exclude<HomeDestinationCategory, 'all'> } = {};
+
+        if (selectedDate) {
+            filters.date = format(selectedDate, 'yyyy-MM-dd');
+        }
+
+        if (selectedCategory !== 'all') {
+            filters.category = selectedCategory;
+        }
+
+        router.get('/destinations', filters);
+    };
+
     return (
         <section className="relative -mt-20 flex min-h-[85vh] items-center justify-center overflow-visible px-6 pt-20 sm:px-8">
             <div className="absolute inset-0 z-0 overflow-hidden">
@@ -31,32 +51,39 @@ export default function HeroSection({ selectedDate, onSelectDate }: HeroSectionP
                     Temukan waktu terbaik untuk mengunjungi destinasi <span className="text-[var(--app-primary)] italic">agrowisata</span>
                 </motion.h1>
 
-                <motion.div
+                <motion.form
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3, duration: 0.45 }}
                     className="ambient-bloom flex flex-col items-center gap-4 rounded-[2rem] bg-white/80 p-4 backdrop-blur-2xl md:flex-row md:p-2"
+                    onSubmit={(event) => {
+                        event.preventDefault();
+                        handleSubmit();
+                    }}
                 >
                     <div className="relative w-full text-left md:flex-1">
                         <HomeVisitDateFilter selectedDate={selectedDate} onSelectDate={onSelectDate} />
                     </div>
                     <div className="relative w-full text-left md:flex-1">
                         <Leaf className="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-[var(--app-primary)]" />
-                        <select className="w-full cursor-pointer appearance-none rounded-full border-none bg-stone-100/60 py-4 pr-10 pl-12 text-[var(--app-text)] ring-0 outline-none focus:ring-2 focus:ring-[color:rgba(19,82,39,0.16)]">
-                            <option>Kategori</option>
-                            <option>Fruit Orchards</option>
-                            <option>Flower Gardens</option>
-                            <option>Vegetable Farms</option>
+                        <select
+                            value={selectedCategory}
+                            onChange={(event) => setSelectedCategory(event.target.value as HomeDestinationCategory)}
+                            className="w-full cursor-pointer appearance-none rounded-full border-none bg-stone-100/60 py-4 pr-10 pl-12 text-[var(--app-text)] ring-0 outline-none focus:ring-2 focus:ring-[color:rgba(19,82,39,0.16)]"
+                        >
+                            <option value="all">Semua kategori</option>
+                            <option value="buah">Wisata Buah</option>
+                            <option value="bunga">Wisata Bunga</option>
                         </select>
                         <ChevronDown className="pointer-events-none absolute top-1/2 right-4 h-5 w-5 -translate-y-1/2 text-[var(--app-primary)]" />
                     </div>
                     <button
-                        type="button"
-                        className="chlorophyll-gradient w-full rounded-[1.25rem] px-10 py-2 font-bold text-white shadow-lg shadow-[color:rgba(19,82,39,0.2)] transition-all hover:translate-y-0.5 md:w-auto"
+                        type="submit"
+                        className="chlorophyll-gradient w-full rounded-[1.1rem] px-10 py-2 font-bold text-white shadow-lg shadow-[color:rgba(19,82,39,0.2)] transition-all hover:translate-y-0.5 md:w-auto"
                     >
                         Dapatkan rekomendasi
                     </button>
-                </motion.div>
+                </motion.form>
             </div>
         </section>
     );

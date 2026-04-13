@@ -1,3 +1,5 @@
+import type { HomeDestinationCategory } from '@/features/home/types';
+
 export interface RecommendationHeroContent {
     monthLabel: string;
     categoryLabel: string;
@@ -12,6 +14,7 @@ export interface RecommendationHeroContent {
 export interface RecommendationDestination {
     id: string;
     name: string;
+    filterCategory: Exclude<HomeDestinationCategory, 'all'>;
     category: string;
     categoryIcon: 'eco' | 'local_florist' | 'nutrition';
     status: 'PEAK' | 'AVAILABLE' | 'OFF-SEASON';

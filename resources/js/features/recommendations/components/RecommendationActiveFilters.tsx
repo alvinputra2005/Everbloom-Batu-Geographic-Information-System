@@ -1,3 +1,4 @@
+import type { HomeDestinationCategory, HomeDestinationFilter } from '@/features/home/types';
 import { X } from 'lucide-react';
 import { format } from 'date-fns';
 import { id as indonesianLocale } from 'date-fns/locale';
@@ -7,6 +8,8 @@ import type { LandmarkOption } from '@/features/recommendations/types';
 
 interface RecommendationActiveFiltersProps {
     selectedDate: Date | null;
+    selectedCategory: HomeDestinationCategory;
+    categories: HomeDestinationFilter[];
     selectedLandmarks: string[];
     landmarks: LandmarkOption[];
     currentMinPrice: number;
@@ -14,6 +17,7 @@ interface RecommendationActiveFiltersProps {
     minPriceValue: number;
     maxPriceValue: number;
     onRemoveDate: () => void;
+    onRemoveCategory: () => void;
     onRemoveLandmark: (landmarkId: string) => void;
     onRemovePrice: () => void;
     onResetAll: () => void;
@@ -25,6 +29,8 @@ function formatRupiah(value: number) {
 
 export default function RecommendationActiveFilters({
     selectedDate,
+    selectedCategory,
+    categories,
     selectedLandmarks,
     landmarks,
     currentMinPrice,
@@ -32,13 +38,16 @@ export default function RecommendationActiveFilters({
     minPriceValue,
     maxPriceValue,
     onRemoveDate,
+    onRemoveCategory,
     onRemoveLandmark,
     onRemovePrice,
     onResetAll,
 }: RecommendationActiveFiltersProps) {
     const activeLandmarkItems = landmarks.filter((landmark) => selectedLandmarks.includes(landmark.id));
     const hasPriceFilter = currentMinPrice > minPriceValue || currentMaxPrice < maxPriceValue;
-    const hasAnyFilter = Boolean(selectedDate) || activeLandmarkItems.length > 0 || hasPriceFilter;
+    const activeCategory = categories.find((category) => category.key === selectedCategory);
+    const hasCategoryFilter = selectedCategory !== 'all';
+    const hasAnyFilter = Boolean(selectedDate) || hasCategoryFilter || activeLandmarkItems.length > 0 || hasPriceFilter;
 
     if (!hasAnyFilter) {
         return null;
@@ -70,6 +79,8 @@ export default function RecommendationActiveFilters({
                         onRemove={onRemoveDate}
                     />
                 ) : null}
+
+                {hasCategoryFilter && activeCategory ? <FilterChip label={`Kategori: ${activeCategory.label}`} onRemove={onRemoveCategory} /> : null}
 
                 {hasPriceFilter ? (
                     <FilterChip

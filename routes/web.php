@@ -8,8 +8,24 @@ Route::get('/', function () {
     return Inertia::render('Home/HomePage');
 })->name('home');
 
-Route::get('/destinations', function () {
-    return Inertia::render('Recommendations/RecommendationResultPage');
+Route::get('/destinations', function (Request $request) {
+    $category = $request->query('category');
+    $date = $request->query('date');
+
+    if (! in_array($category, ['buah', 'bunga'], true)) {
+        $category = null;
+    }
+
+    if (! is_string($date) || ! strtotime($date)) {
+        $date = null;
+    }
+
+    return Inertia::render('Recommendations/RecommendationResultPage', [
+        'filters' => [
+            'category' => $category,
+            'date' => $date,
+        ],
+    ]);
 })->name('destinations');
 
 Route::redirect('/recommendations', '/destinations', 301);

@@ -1,3 +1,4 @@
+import type { HomeDestinationCategory, HomeDestinationFilter } from '@/features/home/types';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
@@ -11,6 +12,8 @@ interface RecommendationFiltersProps {
     landmarks: LandmarkOption[];
     nearby: NearbyInsight;
     selectedDate: Date | null;
+    selectedCategory: HomeDestinationCategory;
+    categories: HomeDestinationFilter[];
     selectedLandmarks: string[];
     currentMinPrice: number;
     currentMaxPrice: number;
@@ -20,6 +23,7 @@ interface RecommendationFiltersProps {
     onMinPriceChange: (value: number) => void;
     onMaxPriceChange: (value: number) => void;
     onRemoveDate: () => void;
+    onRemoveCategory: () => void;
     onRemovePrice: () => void;
     onResetAll: () => void;
 }
@@ -47,6 +51,8 @@ export default function RecommendationFilters({
     landmarks,
     nearby,
     selectedDate,
+    selectedCategory,
+    categories,
     selectedLandmarks,
     currentMinPrice,
     currentMaxPrice,
@@ -56,6 +62,7 @@ export default function RecommendationFilters({
     onMinPriceChange,
     onMaxPriceChange,
     onRemoveDate,
+    onRemoveCategory,
     onRemovePrice,
     onResetAll,
 }: RecommendationFiltersProps) {
@@ -75,6 +82,8 @@ export default function RecommendationFilters({
         <aside className="space-y-6 self-start lg:sticky lg:top-28 lg:col-span-3">
             <RecommendationActiveFilters
                 selectedDate={selectedDate}
+                selectedCategory={selectedCategory}
+                categories={categories}
                 selectedLandmarks={selectedLandmarks}
                 landmarks={landmarks}
                 currentMinPrice={currentMinPrice}
@@ -82,6 +91,7 @@ export default function RecommendationFilters({
                 minPriceValue={minPriceValue}
                 maxPriceValue={maxPriceValue}
                 onRemoveDate={onRemoveDate}
+                onRemoveCategory={onRemoveCategory}
                 onRemoveLandmark={onToggleLandmark}
                 onRemovePrice={onRemovePrice}
                 onResetAll={onResetAll}
