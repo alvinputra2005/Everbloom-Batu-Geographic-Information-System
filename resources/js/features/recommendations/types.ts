@@ -12,16 +12,18 @@ export interface RecommendationHeroContent {
 export interface RecommendationDestination {
     id: string;
     name: string;
-    type: string;
-    description: string;
+    category: string;
+    categoryIcon: 'eco' | 'local_florist' | 'nutrition';
+    status: 'PEAK' | 'AVAILABLE' | 'OFF-SEASON';
     price: string;
+    priceValue: number;
     hours: string;
-    commodity: string;
+    specialty: string;
     image: string;
     mapHref: string;
     detailHref: string;
-    isHighlyRecommended?: boolean;
-    isGreatSeasonalChoice?: boolean;
+    landmarks: string[];
+    availableDates: number[];
 }
 
 export interface RecommendationInsightMetric {
@@ -46,4 +48,9 @@ export interface NearbyInsight {
     image: string;
     imageAlt: string;
     href: string;
+}
+
+export interface LandmarkOption {
+    id: string;
+    name: string;
 }

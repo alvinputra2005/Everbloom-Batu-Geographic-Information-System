@@ -25,7 +25,7 @@ const iconMap = {
 const defaultItems: MobileBottomNavItem[] = [
     { label: 'Home', href: '/', icon: 'home', active: true },
     { label: 'Explore', href: '/recommendations', icon: 'explore' },
-    { label: 'Map', href: '#map', icon: 'map' },
+    // { label: 'Map', href: '#map', icon: 'map' },
     { label: 'Calendar', href: '/calendar', icon: 'calendar' },
     { label: 'About', href: '#about', icon: 'about' },
 ];
