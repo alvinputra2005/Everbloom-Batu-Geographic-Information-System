@@ -16,7 +16,7 @@ interface NavbarProps {
 }
 
 const defaultItems: NavbarItem[] = [
-    { label: 'Beranda', href: '/', active: true },
+    { label: 'Beranda', href: '/' },
     { label: 'Rekomendasi', href: '/recommendations' },
     { label: 'Kalender', href: '/calendar' },
     { label: 'Tentang', href: '#about' },
