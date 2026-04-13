@@ -3,22 +3,21 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
 import DestinationCard from '@/components/common/DestinationCard';
-import { destinationFilters } from '@/features/home/data';
 import type { HomeDestination, HomeDestinationCategory, HomeDestinationFilter } from '@/features/home/types';
 
 interface PopularDestinationsSectionProps {
     activeCategory: HomeDestinationCategory;
+    filters: HomeDestinationFilter[];
     featuredDestinations: HomeDestination[];
     onCategoryChange: (category: HomeDestinationCategory) => void;
 }
 
 export default function PopularDestinationsSection({
     activeCategory,
+    filters,
     featuredDestinations,
     onCategoryChange,
 }: PopularDestinationsSectionProps) {
-    const filters = destinationFilters as HomeDestinationFilter[];
-
     return (
         <section id="recommendations" className="mx-auto mb-24 max-w-7xl px-6">
             <motion.div

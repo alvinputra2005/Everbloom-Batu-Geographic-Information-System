@@ -10,9 +10,10 @@ import type { HomeDestinationCategory } from '@/features/home/types';
 interface HeroSectionProps {
     selectedDate: Date | null;
     onSelectDate: (date: Date | null) => void;
+    filters: { key: HomeDestinationCategory; label: string }[];
 }
 
-export default function HeroSection({ selectedDate, onSelectDate }: HeroSectionProps) {
+export default function HeroSection({ selectedDate, onSelectDate, filters }: HeroSectionProps) {
     const [selectedCategory, setSelectedCategory] = useState<HomeDestinationCategory>('all');
 
     const handleSubmit = () => {
@@ -71,9 +72,11 @@ export default function HeroSection({ selectedDate, onSelectDate }: HeroSectionP
                             onChange={(event) => setSelectedCategory(event.target.value as HomeDestinationCategory)}
                             className="w-full cursor-pointer appearance-none rounded-full border-none bg-stone-100/60 py-4 pr-10 pl-12 text-[var(--app-text)] ring-0 outline-none focus:ring-2 focus:ring-[color:rgba(19,82,39,0.16)]"
                         >
-                            <option value="all">Semua kategori</option>
-                            <option value="buah">Wisata Buah</option>
-                            <option value="bunga">Wisata Bunga</option>
+                            {filters.map((filter) => (
+                                <option key={filter.key} value={filter.key}>
+                                    {filter.key === 'all' ? 'Semua kategori' : filter.label}
+                                </option>
+                            ))}
                         </select>
                         <ChevronDown className="pointer-events-none absolute top-1/2 right-4 h-5 w-5 -translate-y-1/2 text-[var(--app-primary)]" />
                     </div>

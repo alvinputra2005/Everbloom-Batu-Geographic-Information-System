@@ -1,6 +1,6 @@
 import { Car, Tent, Utensils, Waves, Wifi } from 'lucide-react';
 
-import type { DestinationDetail } from '@/features/destination/data';
+import type { DestinationDetail } from '@/features/destination/types';
 
 interface FacilityListProps {
     destination: DestinationDetail;

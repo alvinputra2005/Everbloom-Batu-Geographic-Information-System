@@ -19,7 +19,7 @@ import FacilityList from '@/features/destination/components/FacilityList';
 import LocationCard from '@/features/destination/components/LocationCard';
 import ReviewSummary from '@/features/destination/components/ReviewSummary';
 import SeasonalConditionPanel from '@/features/destination/components/SeasonalConditionPanel';
-import { getDestinationDetailBySlug } from '@/features/destination/data';
+import type { DestinationDetail } from '@/features/destination/types';
 
 const mobileItems = [
     { icon: Home, label: 'Home' },
@@ -97,7 +97,7 @@ const MobileNav = () => (
 );
 
 interface DestinationDetailPageProps {
-    slug: string;
+    destination: DestinationDetail | null;
 }
 
 function DestinationNotFound() {
@@ -120,9 +120,7 @@ function DestinationNotFound() {
     );
 }
 
-export default function DestinationDetailPage({ slug }: DestinationDetailPageProps) {
-    const destination = getDestinationDetailBySlug(slug);
-
+export default function DestinationDetailPage({ destination }: DestinationDetailPageProps) {
     if (!destination) {
         return <DestinationNotFound />;
     }

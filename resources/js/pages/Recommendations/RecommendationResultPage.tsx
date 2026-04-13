@@ -4,117 +4,24 @@ import { ChevronDown, Leaf } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 import SectionContainer from '@/components/common/SectionContainer';
-import { destinationFilters, destinations as homeDestinations } from '@/features/home/data';
+import type { HomeDestinationCategory, HomeDestinationFilter } from '@/features/home/types';
 import RecommendationFilters from '@/features/recommendations/components/RecommendationFilters';
 import RecommendationHero from '@/features/recommendations/components/RecommendationHero';
 import RecommendationList from '@/features/recommendations/components/RecommendationList';
 import RecommendationVisitDateFilter from '@/features/recommendations/components/RecommendationVisitDateFilter';
 import type { LandmarkOption, NearbyInsight, RecommendationDestination, RecommendationHeroContent } from '@/features/recommendations/types';
-import type { HomeDestinationCategory, HomeDestinationFilter } from '@/features/home/types';
 import MainLayout from '@/layouts/MainLayout';
-
-const HERO_CONTENT: RecommendationHeroContent = {
-    monthLabel: 'July 2024',
-    categoryLabel: 'Fruits & Flowers',
-    title: 'The Harvest Season is Here',
-    description:
-        "Juli is great for sunflowers and citrus harvest. The dry mountain air in Batu provides perfect clarity for scenic orchard strolls. Based on your preferences, we've curated the best spots for this month.",
-    insightLabel: 'Insight',
-    insightText: 'High bloom intensity detected in northern Batu slopes today. Perfect for photography.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYL8C7GZgt7_YFv2LND0HcLEQ4a-a-FS8LczSFtOBTYMDfymTs2f5fchtP473OFhtUaTJj53GUUHSZUYljHHS63W6WNlhCEwjzCGA8DU3B1iolIAzDU0d-Fu1knm9O6l1ItM7LWw96VmSr444O4IWFP2qUPv_jWnawWQMKf5IJe3d6fjBYcD4H79r5mRTTg6_oGY8YXwV33CXb7UtP7xuii-gCwgLcjKanA-_Y8vo5OVXV-e3rEviXS92R8fMUCCeSktw2gdZwRWh_',
-    imageAlt: 'Batu Orchard',
-};
-
-const RECOMMENDED_DESTINATIONS: RecommendationDestination[] = [
-    {
-        id: '1',
-        name: 'Kebun Apal Bumiaji',
-        filterCategory: 'buah',
-        category: 'Fruit & Harvest',
-        categoryIcon: 'eco',
-        status: 'PEAK',
-        price: 'Rp 25.000',
-        priceValue: 25000,
-        hours: '08:00 - 17:00',
-        specialty: 'Manalagi Apple',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYL8C7GZgt7_YFv2LND0HcLEQ4a-a-FS8LczSFtOBTYMDfymTs2f5fchtP473OFhtUaTJj53GUUHSZUYljHHS63W6WNlhCEwjzCGA8DU3B1iolIAzDU0d-Fu1knm9O6l1ItM7LWw96VmSr444O4IWFP2qUPv_jWnawWQMKf5IJe3d6fjBYcD4H79r5mRTTg6_oGY8YXwV33CXb7UtP7xuii-gCwgLcjKanA-_Y8vo5OVXV-e3rEviXS92R8fMUCCeSktw2gdZwRWh_',
-        detailHref: '/destinations/kebun-apel-bumiaji',
-        mapHref: '#map',
-        landmarks: ['jatim-park-1', 'museum-angkut'],
-        seasonMonths: [5, 6, 7],
-    },
-    {
-        id: '2',
-        name: 'Pusat Bunga Sidomulyo',
-        filterCategory: 'bunga',
-        category: 'Flower Village',
-        categoryIcon: 'local_florist',
-        status: 'AVAILABLE',
-        price: 'Free Entry',
-        priceValue: 0,
-        hours: '07:00 - 18:00',
-        specialty: 'Roses & Orchids',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNP3ODtQnx9VdfnZcEq-TWyn4LKqo0irgW4vrRwFB7MPjNSEzWWj2mDRL0j_0NMAGPRIrq4dRw4Qr3iOjwpjZH3r55RjQuJwxqJurlVemFxbQCfqblgEADnBCgOJ-p-0o7mA0DCRMbWqJDR-_SAkG3hnMosIpU4PITx-XnIQxVIdz2noxfyqWmL1Qv2RJbtRJ0jfJdBGKfM6lqJ3VPTmCynup9d_zi6HEL6RBR5gPGO9fXd-NCBU1k8NpGcbIjBukNSXfTEdxrM0V6',
-        detailHref: '/destinations/pusat-bunga-sidomulyo',
-        mapHref: '#map',
-        landmarks: ['alun-alun-batu', 'jatim-park-2'],
-        seasonMonths: [3, 4, 5, 6],
-    },
-];
-
-const LANDMARK_CYCLE = [
-    ['jatim-park-1', 'museum-angkut'],
-    ['alun-alun-batu', 'jatim-park-2'],
-    ['museum-angkut', 'alun-alun-batu'],
-    ['jatim-park-2', 'jatim-park-1'],
-];
-
-const SEASON_MONTH_CYCLE = [
-    [5, 6, 7],
-    [3, 4, 5, 6],
-    [0, 1, 10, 11],
-    [7, 8, 9],
-];
-
-const LANDMARKS: LandmarkOption[] = [
-    { id: 'jatim-park-1', name: 'Jatim Park 1' },
-    { id: 'museum-angkut', name: 'Museum Angkut' },
-    { id: 'alun-alun-batu', name: 'Alun-Alun Batu' },
-    { id: 'jatim-park-2', name: 'Jatim Park 2' },
-];
-
-const HOME_DESTINATION_RECOMMENDATIONS: RecommendationDestination[] = homeDestinations.slice(0, 6).map((destination, index) => ({
-    id: `home-${destination.slug}`,
-    name: destination.title,
-    filterCategory: destination.category,
-    category: destination.category === 'buah' ? 'Fruit & Harvest' : 'Flower Village',
-    categoryIcon: destination.category === 'buah' ? 'eco' : 'local_florist',
-    status: destination.status === 'Peak Status' ? 'PEAK' : destination.status === 'Available' ? 'AVAILABLE' : 'OFF-SEASON',
-    price: destination.category === 'buah' ? (index % 2 === 0 ? 'Rp 35.000' : 'Rp 20.000') : index % 2 === 0 ? 'Rp 15.000' : 'Free Entry',
-    priceValue: destination.category === 'buah' ? (index % 2 === 0 ? 35000 : 20000) : index % 2 === 0 ? 15000 : 0,
-    hours: destination.time.replace('Buka ', '') + ' - 17:00',
-    specialty: destination.tags,
-    image: destination.image,
-    detailHref: `/destinations/${destination.slug}`,
-    mapHref: '#map',
-    landmarks: LANDMARK_CYCLE[index % LANDMARK_CYCLE.length],
-    seasonMonths: SEASON_MONTH_CYCLE[index % SEASON_MONTH_CYCLE.length],
-}));
-
-const NEARBY_INSIGHT: NearbyInsight = {
-    title: 'Explore Nearby',
-    description: 'There are 12 more agro-destinations within a 5km radius from your current selection.',
-    countLabel: '12 Nearby Spots',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBz5jIy4_Pr-jbJIWOqS3_9I7eEqui0YaHjoB6BcWFtkpcSdvUWoIouDySB6prS1FqHrfNwUtDVyTtIxBGacwSC9FEgfNhGrfY2GOvLwTZ4dPCw-8BcqWOL65aLrqFVZcxal7HZfmPegeqqS7NeJ59qrLMtQIGFKAu13_ZFYBY0XJWjUkEHn5M4oUtpgyJsu02h1ei2Mnna1lztua92v70tCB4MjSvzcGMdtGy6MnJoEG-nV_68LuvojhHskn_2veo2U2aot4me4TVs',
-    imageAlt: 'Batu Map',
-    href: '#map',
-};
 
 interface RecommendationResultPageProps {
     filters?: {
         date?: string | null;
         category?: Exclude<HomeDestinationCategory, 'all'> | null;
     };
+    categories: HomeDestinationFilter[];
+    destinations: RecommendationDestination[];
+    landmarks: LandmarkOption[];
+    heroContentBase: RecommendationHeroContent;
+    nearbyInsight: NearbyInsight;
 }
 
 function getInitialSelectedDate(date: string | null | undefined) {
@@ -141,12 +48,17 @@ function buildFilterQuery(selectedDate: Date | null, selectedCategory: HomeDesti
     return searchParams.toString();
 }
 
-export default function RecommendationResultPage({ filters }: RecommendationResultPageProps) {
-    const allDestinations = [...RECOMMENDED_DESTINATIONS, ...HOME_DESTINATION_RECOMMENDATIONS];
-    const categories = destinationFilters as HomeDestinationFilter[];
+export default function RecommendationResultPage({
+    filters,
+    categories,
+    destinations,
+    landmarks,
+    heroContentBase,
+    nearbyInsight,
+}: RecommendationResultPageProps) {
     const initialCategory = filters?.category === 'buah' || filters?.category === 'bunga' ? filters.category : 'all';
     const minAvailablePrice = 0;
-    const maxAvailablePrice = Math.max(...allDestinations.map((destination) => destination.priceValue));
+    const maxAvailablePrice = Math.max(...destinations.map((destination) => destination.priceValue));
     const [currentMinPrice, setCurrentMinPrice] = useState(minAvailablePrice);
     const [currentMaxPrice, setCurrentMaxPrice] = useState(maxAvailablePrice);
     const [selectedLandmarks, setSelectedLandmarks] = useState<string[]>([]);
@@ -155,8 +67,8 @@ export default function RecommendationResultPage({ filters }: RecommendationResu
     const [sortBy, setSortBy] = useState<'recommended' | 'price-low' | 'price-high' | 'name'>('recommended');
     const activeCategoryLabel = categories.find((category) => category.key === selectedCategory)?.label ?? 'Semua';
     const heroContent: RecommendationHeroContent = {
-        ...HERO_CONTENT,
-        monthLabel: selectedDate ? format(selectedDate, 'MMMM yyyy', { locale: indonesianLocale }) : HERO_CONTENT.monthLabel,
+        ...heroContentBase,
+        monthLabel: selectedDate ? format(selectedDate, 'MMMM yyyy', { locale: indonesianLocale }) : heroContentBase.monthLabel,
         categoryLabel: selectedCategory === 'all' ? 'Wisata Buah & Bunga' : activeCategoryLabel,
     };
 
@@ -167,7 +79,7 @@ export default function RecommendationResultPage({ filters }: RecommendationResu
         window.history.replaceState(window.history.state, '', nextUrl);
     }, [selectedCategory, selectedDate]);
 
-    const filteredDestinations = allDestinations
+    const filteredDestinations = destinations
         .filter((destination) => {
             const matchesPrice = destination.priceValue >= currentMinPrice && destination.priceValue <= currentMaxPrice;
             const matchesCategory = selectedCategory === 'all' || destination.filterCategory === selectedCategory;
@@ -223,8 +135,8 @@ export default function RecommendationResultPage({ filters }: RecommendationResu
 
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
                     <RecommendationFilters
-                        landmarks={LANDMARKS}
-                        nearby={NEARBY_INSIGHT}
+                        landmarks={landmarks}
+                        nearby={nearbyInsight}
                         selectedDate={selectedDate}
                         selectedCategory={selectedCategory}
                         categories={categories}

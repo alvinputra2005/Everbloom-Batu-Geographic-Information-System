@@ -1,6 +1,6 @@
 import { Clock, CreditCard, Sprout, Users } from 'lucide-react';
 
-import type { DestinationDetail } from '@/features/destination/data';
+import type { DestinationDetail } from '@/features/destination/types';
 
 interface DestinationInfoProps {
     destination: DestinationDetail;

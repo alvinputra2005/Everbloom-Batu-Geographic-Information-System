@@ -1,7 +1,7 @@
 import { MapPin, Star } from 'lucide-react';
 import { motion } from 'motion/react';
 
-import type { DestinationDetail } from '@/features/destination/data';
+import type { DestinationDetail } from '@/features/destination/types';
 
 interface DestinationHeroProps {
     destination: DestinationDetail;

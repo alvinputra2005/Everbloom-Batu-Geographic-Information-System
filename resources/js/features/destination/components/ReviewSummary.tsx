@@ -1,6 +1,6 @@
 import { Star } from 'lucide-react';
 
-import type { DestinationDetail } from '@/features/destination/data';
+import type { DestinationDetail } from '@/features/destination/types';
 
 interface ReviewSummaryProps {
     destination: DestinationDetail;

@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react';
 import { Map as MapIcon, MapPin, Navigation } from 'lucide-react';
 
-import type { DestinationDetail } from '@/features/destination/data';
+import type { DestinationDetail } from '@/features/destination/types';
 
 interface LocationCardProps {
     destination: DestinationDetail;
