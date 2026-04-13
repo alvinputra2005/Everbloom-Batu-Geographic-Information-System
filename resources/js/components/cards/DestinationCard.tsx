@@ -6,20 +6,28 @@ import type { RecommendationDestination } from '@/features/recommendations/types
 
 interface DestinationCardProps {
     destination: RecommendationDestination;
-    index: number;
 }
 
-export default function DestinationCard({ destination, index }: DestinationCardProps) {
+const cardVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.35,
+            ease: 'easeOut',
+        },
+    },
+};
+
+export default function DestinationCard({ destination }: DestinationCardProps) {
     const isPeak = destination.status === 'PEAK';
     const isAvailable = destination.status === 'AVAILABLE';
     const isOffSeason = destination.status === 'OFF-SEASON';
 
     return (
         <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ delay: index * 0.08 }}
+            variants={cardVariants}
             className="ambient-bloom group flex h-full flex-col rounded-xl border border-[var(--rec-outline-variant)]/10 bg-[var(--rec-surface-lowest)] p-3"
         >
             <div className="relative mb-3 h-48 overflow-hidden rounded-lg">
@@ -51,9 +59,7 @@ export default function DestinationCard({ destination, index }: DestinationCardP
                 <div className="mb-2">
                     <div className="mb-1 flex items-center gap-1.5">
                         {destination.categoryIcon === 'eco' ? <Leaf className="h-3.5 w-3.5 text-[var(--rec-secondary)]" /> : null}
-                        {destination.categoryIcon === 'local_florist' ? (
-                            <Flower2 className="h-3.5 w-3.5 text-[var(--rec-tertiary)]" />
-                        ) : null}
+                        {destination.categoryIcon === 'local_florist' ? <Flower2 className="h-3.5 w-3.5 text-[var(--rec-tertiary)]" /> : null}
                         {destination.categoryIcon === 'nutrition' ? <Utensils className="h-3.5 w-3.5 text-red-600" /> : null}
                         <span
                             className={`text-[10px] font-bold tracking-tight uppercase ${

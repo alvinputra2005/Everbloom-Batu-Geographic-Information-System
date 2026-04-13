@@ -83,28 +83,9 @@ const HOME_DESTINATION_RECOMMENDATIONS: RecommendationDestination[] = homeDestin
     name: destination.title,
     category: destination.category === 'buah' ? 'Fruit & Harvest' : 'Flower Village',
     categoryIcon: destination.category === 'buah' ? 'eco' : 'local_florist',
-    status:
-        destination.status === 'Peak Status'
-            ? 'PEAK'
-            : destination.status === 'Available'
-              ? 'AVAILABLE'
-              : 'OFF-SEASON',
-    price:
-        destination.category === 'buah'
-            ? index % 2 === 0
-                ? 'Rp 35.000'
-                : 'Rp 20.000'
-            : index % 2 === 0
-              ? 'Rp 15.000'
-              : 'Free Entry',
-    priceValue:
-        destination.category === 'buah'
-            ? index % 2 === 0
-                ? 35000
-                : 20000
-            : index % 2 === 0
-              ? 15000
-              : 0,
+    status: destination.status === 'Peak Status' ? 'PEAK' : destination.status === 'Available' ? 'AVAILABLE' : 'OFF-SEASON',
+    price: destination.category === 'buah' ? (index % 2 === 0 ? 'Rp 35.000' : 'Rp 20.000') : index % 2 === 0 ? 'Rp 15.000' : 'Free Entry',
+    priceValue: destination.category === 'buah' ? (index % 2 === 0 ? 35000 : 20000) : index % 2 === 0 ? 15000 : 0,
     hours: destination.time.replace('Buka ', '') + ' - 17:00',
     specialty: destination.tags,
     image: destination.image,
@@ -136,9 +117,7 @@ export default function RecommendationResultPage() {
     const filteredDestinations = allDestinations
         .filter((destination) => {
             const matchesPrice = destination.priceValue >= currentMinPrice && destination.priceValue <= currentMaxPrice;
-            const matchesLandmark =
-                selectedLandmarks.length === 0 ||
-                destination.landmarks.some((landmark) => selectedLandmarks.includes(landmark));
+            const matchesLandmark = selectedLandmarks.length === 0 || destination.landmarks.some((landmark) => selectedLandmarks.includes(landmark));
             const matchesDate = selectedDate === null || destination.seasonMonths.includes(selectedDate.getMonth());
 
             return matchesPrice && matchesLandmark && matchesDate;
@@ -160,9 +139,7 @@ export default function RecommendationResultPage() {
         });
 
     const handleToggleLandmark = (landmarkId: string) => {
-        setSelectedLandmarks((current) =>
-            current.includes(landmarkId) ? current.filter((item) => item !== landmarkId) : [...current, landmarkId],
-        );
+        setSelectedLandmarks((current) => (current.includes(landmarkId) ? current.filter((item) => item !== landmarkId) : [...current, landmarkId]));
     };
 
     const handleMinPriceChange = (value: number) => {
@@ -216,19 +193,22 @@ export default function RecommendationResultPage() {
                                 <RecommendationVisitDateFilter selectedDate={selectedDate} onSelectDate={setSelectedDate} />
                             </div>
 
-                            <div className="w-full lg:w-[240px]">
-                                <div className="relative">
-                                    <select
-                                        value={sortBy}
-                                        onChange={(event) => setSortBy(event.target.value as typeof sortBy)}
-                                        className="w-full cursor-pointer appearance-none rounded-full border-none bg-white/85 py-5 pr-12 pl-5 text-sm font-semibold text-[var(--rec-on-surface)] shadow-[0_12px_40px_rgba(27,28,25,0.06)] outline-none backdrop-blur-2xl"
-                                    >
-                                        <option value="recommended">Sort by: Recommended</option>
-                                        <option value="price-low">Sort by: Price Low to High</option>
-                                        <option value="price-high">Sort by: Price High to Low</option>
-                                        <option value="name">Sort by: Name</option>
-                                    </select>
-                                    <ChevronDown className="pointer-events-none absolute top-1/2 right-5 h-4 w-4 -translate-y-1/2 text-[var(--rec-primary)]" />
+                            <div className="w-full lg:w-[320px]">
+                                <div className="flex items-center gap-3 rounded-full bg-white/85 px-5 shadow-[0_12px_40px_rgba(27,28,25,0.06)] backdrop-blur-2xl">
+                                    <span className="shrink-0 text-sm font-semibold text-[var(--rec-on-surface)]">Sort By:</span>
+                                    <div className="relative min-w-0 flex-1">
+                                        <select
+                                            value={sortBy}
+                                            onChange={(event) => setSortBy(event.target.value as typeof sortBy)}
+                                            className="w-full cursor-pointer appearance-none border-none bg-transparent py-3 pr-8 text-sm font-semibold text-[var(--rec-on-surface)] outline-none"
+                                        >
+                                            <option value="recommended">Recommended</option>
+                                            <option value="price-low">Price Low to High</option>
+                                            <option value="price-high">Price High to Low</option>
+                                            <option value="name">Name (A-Z)</option>
+                                        </select>
+                                        <ChevronDown className="pointer-events-none absolute top-1/2 right-0 h-4 w-4 -translate-y-1/2 text-[var(--rec-primary)]" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

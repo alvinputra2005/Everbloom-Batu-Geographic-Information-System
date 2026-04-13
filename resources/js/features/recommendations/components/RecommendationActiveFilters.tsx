@@ -52,12 +52,12 @@ export default function RecommendationActiveFilters({
         >
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                    <h3 className="text-2xl font-bold text-[var(--rec-on-surface)]">Selected filters</h3>
+                    <h3 className="text-l font-bold text-[var(--rec-on-surface)]">Selected Filters</h3>
                 </div>
                 <button
                     type="button"
                     onClick={onResetAll}
-                    className="text-lg font-bold text-[#0b72e7] transition-opacity hover:opacity-80"
+                    className="text-s font-bold text-[#0b72e7] transition-opacity hover:opacity-80"
                 >
                     Reset
                 </button>
