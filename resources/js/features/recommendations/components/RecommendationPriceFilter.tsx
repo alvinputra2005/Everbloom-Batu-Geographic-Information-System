@@ -1,9 +1,11 @@
 interface RecommendationPriceFilterProps {
     isOpen: boolean;
+    minPriceValue: number;
     maxPriceValue: number;
-    currentPrice: number;
-    onPriceChange: (value: number) => void;
-    onReset: () => void;
+    currentMinPrice: number;
+    currentMaxPrice: number;
+    onMinPriceChange: (value: number) => void;
+    onMaxPriceChange: (value: number) => void;
 }
 
 function formatRupiah(value: number) {
@@ -12,10 +14,12 @@ function formatRupiah(value: number) {
 
 export default function RecommendationPriceFilter({
     isOpen,
+    minPriceValue,
     maxPriceValue,
-    currentPrice,
-    onPriceChange,
-    onReset,
+    currentMinPrice,
+    currentMaxPrice,
+    onMinPriceChange,
+    onMaxPriceChange,
 }: RecommendationPriceFilterProps) {
     if (!isOpen) {
         return null;
@@ -23,38 +27,50 @@ export default function RecommendationPriceFilter({
 
     return (
         <div className="p-5 pt-0">
-            <div className="mb-4 flex justify-end">
-                <button
-                    type="button"
-                    onClick={onReset}
-                    className="text-[10px] font-bold tracking-[0.2em] text-[var(--rec-secondary)] uppercase"
-                >
-                    Reset
-                </button>
-            </div>
             <input
                 type="range"
                 className="mb-6 h-1.5 w-full cursor-pointer appearance-none rounded-lg bg-[var(--rec-surface-highest)] accent-[var(--rec-primary-container)]"
-                min="0"
+                min={minPriceValue}
                 max={maxPriceValue}
                 step="1000"
-                value={currentPrice}
-                onChange={(event) => onPriceChange(Number(event.target.value))}
+                value={currentMaxPrice}
+                onChange={(event) => onMaxPriceChange(Number(event.target.value))}
             />
             <div className="flex items-center justify-between gap-4">
                 <div className="flex-1">
                     <label className="mb-1 block text-[10px] font-bold text-[var(--rec-on-surface-variant)] uppercase">Min HTM</label>
-                    <div className="rounded-lg border border-[var(--rec-outline-variant)]/30 bg-[var(--rec-surface-low)] px-3 py-2 text-xs font-medium">
-                        Rp 0
+                    <div className="flex items-center rounded-lg border border-[var(--rec-outline-variant)]/30 bg-[var(--rec-surface-low)] px-3 py-2 text-xs font-medium">
+                        <span className="mr-2 text-[var(--rec-on-surface-variant)]">Rp</span>
+                        <input
+                            type="number"
+                            min={minPriceValue}
+                            max={currentMaxPrice}
+                            step="1000"
+                            value={currentMinPrice}
+                            onChange={(event) => onMinPriceChange(Number(event.target.value))}
+                            className="w-full bg-transparent outline-none"
+                        />
                     </div>
                 </div>
                 <div className="flex-1">
                     <label className="mb-1 block text-[10px] font-bold text-[var(--rec-on-surface-variant)] uppercase">Max HTM</label>
-                    <div className="rounded-lg border border-[var(--rec-outline-variant)]/30 bg-[var(--rec-surface-low)] px-3 py-2 text-xs font-medium">
-                        {formatRupiah(currentPrice)}
+                    <div className="flex items-center rounded-lg border border-[var(--rec-outline-variant)]/30 bg-[var(--rec-surface-low)] px-3 py-2 text-xs font-medium">
+                        <span className="mr-2 text-[var(--rec-on-surface-variant)]">Rp</span>
+                        <input
+                            type="number"
+                            min={currentMinPrice}
+                            max={maxPriceValue}
+                            step="1000"
+                            value={currentMaxPrice}
+                            onChange={(event) => onMaxPriceChange(Number(event.target.value))}
+                            className="w-full bg-transparent outline-none"
+                        />
                     </div>
                 </div>
             </div>
+            <p className="mt-3 text-[11px] text-[var(--rec-on-surface-variant)]">
+                Rentang aktif: {formatRupiah(currentMinPrice)} - {formatRupiah(currentMaxPrice)}
+            </p>
         </div>
     );
 }

@@ -90,11 +90,7 @@ export default function DestinationCard({ destination, index }: DestinationCardP
                 <div className="mt-auto flex gap-2">
                     <Link
                         href={destination.detailHref}
-                        className={`flex flex-1 items-center justify-center rounded-lg py-2.5 text-xs font-bold transition-all ${
-                            isPeak
-                                ? 'chlorophyll-gradient text-white hover:opacity-90'
-                                : 'bg-[var(--rec-surface-high)] text-[var(--rec-on-surface)] hover:bg-[var(--rec-surface-highest)]'
-                        }`}
+                        className="chlorophyll-gradient flex flex-1 items-center justify-center rounded-lg py-2.5 text-xs font-bold text-white transition-all hover:opacity-90"
                     >
                         Lihat Detail
                     </Link>

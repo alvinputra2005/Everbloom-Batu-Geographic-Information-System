@@ -23,7 +23,7 @@ export interface RecommendationDestination {
     mapHref: string;
     detailHref: string;
     landmarks: string[];
-    availableDates: number[];
+    seasonMonths: number[];
 }
 
 export interface RecommendationInsightMetric {

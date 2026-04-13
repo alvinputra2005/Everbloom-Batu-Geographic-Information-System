@@ -3,24 +3,28 @@ import { useState } from 'react';
 
 import NearbyMapCard from '@/features/recommendations/components/NearbyMapCard';
 import RecommendationLandmarkFilter from '@/features/recommendations/components/RecommendationLandmarkFilter';
+import RecommendationActiveFilters from '@/features/recommendations/components/RecommendationActiveFilters';
 import RecommendationPriceFilter from '@/features/recommendations/components/RecommendationPriceFilter';
-import RecommendationVisitDateFilter from '@/features/recommendations/components/RecommendationVisitDateFilter';
 import type { LandmarkOption, NearbyInsight } from '@/features/recommendations/types';
 
 interface RecommendationFiltersProps {
     landmarks: LandmarkOption[];
     nearby: NearbyInsight;
+    selectedDate: Date | null;
     selectedLandmarks: string[];
-    selectedDate: number | null;
-    currentPrice: number;
+    currentMinPrice: number;
+    currentMaxPrice: number;
+    minPriceValue: number;
     maxPriceValue: number;
     onToggleLandmark: (landmarkId: string) => void;
-    onSelectDate: (date: number | null) => void;
-    onPriceChange: (value: number) => void;
-    onResetPrice: () => void;
+    onMinPriceChange: (value: number) => void;
+    onMaxPriceChange: (value: number) => void;
+    onRemoveDate: () => void;
+    onRemovePrice: () => void;
+    onResetAll: () => void;
 }
 
-type FilterSectionKey = 'price' | 'landmarks' | 'date';
+type FilterSectionKey = 'price' | 'landmarks';
 
 function FilterToggle({
     title,
@@ -42,19 +46,22 @@ function FilterToggle({
 export default function RecommendationFilters({
     landmarks,
     nearby,
-    selectedLandmarks,
     selectedDate,
-    currentPrice,
+    selectedLandmarks,
+    currentMinPrice,
+    currentMaxPrice,
+    minPriceValue,
     maxPriceValue,
     onToggleLandmark,
-    onSelectDate,
-    onPriceChange,
-    onResetPrice,
+    onMinPriceChange,
+    onMaxPriceChange,
+    onRemoveDate,
+    onRemovePrice,
+    onResetAll,
 }: RecommendationFiltersProps) {
     const [openSections, setOpenSections] = useState<Record<FilterSectionKey, boolean>>({
         price: true,
         landmarks: true,
-        date: true,
     });
 
     const toggleSection = (section: FilterSectionKey) => {
@@ -66,14 +73,30 @@ export default function RecommendationFilters({
 
     return (
         <aside className="space-y-6 self-start lg:sticky lg:top-28 lg:col-span-3">
+            <RecommendationActiveFilters
+                selectedDate={selectedDate}
+                selectedLandmarks={selectedLandmarks}
+                landmarks={landmarks}
+                currentMinPrice={currentMinPrice}
+                currentMaxPrice={currentMaxPrice}
+                minPriceValue={minPriceValue}
+                maxPriceValue={maxPriceValue}
+                onRemoveDate={onRemoveDate}
+                onRemoveLandmark={onToggleLandmark}
+                onRemovePrice={onRemovePrice}
+                onResetAll={onResetAll}
+            />
+
             <div className="overflow-hidden rounded-xl border border-[var(--rec-outline-variant)]/30 bg-white shadow-sm">
                 <FilterToggle title="Price" isOpen={openSections.price} onClick={() => toggleSection('price')} />
                 <RecommendationPriceFilter
                     isOpen={openSections.price}
+                    minPriceValue={minPriceValue}
                     maxPriceValue={maxPriceValue}
-                    currentPrice={currentPrice}
-                    onPriceChange={onPriceChange}
-                    onReset={onResetPrice}
+                    currentMinPrice={currentMinPrice}
+                    currentMaxPrice={currentMaxPrice}
+                    onMinPriceChange={onMinPriceChange}
+                    onMaxPriceChange={onMaxPriceChange}
                 />
             </div>
 
@@ -84,15 +107,6 @@ export default function RecommendationFilters({
                     landmarks={landmarks}
                     selectedLandmarks={selectedLandmarks}
                     onToggleLandmark={onToggleLandmark}
-                />
-            </div>
-
-            <div className="overflow-hidden rounded-xl border border-[var(--rec-outline-variant)]/30 bg-white shadow-sm">
-                <FilterToggle title="Visit Date" isOpen={openSections.date} onClick={() => toggleSection('date')} />
-                <RecommendationVisitDateFilter
-                    isOpen={openSections.date}
-                    selectedDate={selectedDate}
-                    onSelectDate={onSelectDate}
                 />
             </div>
 
