@@ -293,6 +293,46 @@
     .recommendation-day-picker .rdp-day_button:hover {
         background: var(--rec-surface-low);
     }
+
+    .home-day-picker {
+        --rdp-accent-color: var(--app-primary);
+        --rdp-accent-background-color: rgba(19, 82, 39, 0.12);
+        --rdp-day-width: 2.8rem;
+        --rdp-day-height: 2.8rem;
+        --rdp-day_button-width: 2.8rem;
+        --rdp-day_button-height: 2.8rem;
+        --rdp-day_button-border-radius: 0.9rem;
+        --rdp-nav_button-width: 2rem;
+        --rdp-nav_button-height: 2rem;
+        --rdp-weekday-opacity: 1;
+        margin: 0 auto;
+        color: var(--app-text);
+    }
+
+    .home-day-picker .rdp-months {
+        justify-content: center;
+    }
+
+    .home-day-picker .rdp-caption_label {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .home-day-picker .rdp-weekday {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--app-text-muted);
+    }
+
+    .home-day-picker .rdp-day_button {
+        font-weight: 700;
+        transition: all 0.2s ease;
+    }
+
+    .home-day-picker .rdp-day_button:hover {
+        background: var(--app-surface-muted);
+    }
 }
 
 @utility chlorophyll-gradient {

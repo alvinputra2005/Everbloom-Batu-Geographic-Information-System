@@ -8,9 +8,11 @@ Route::get('/', function () {
     return Inertia::render('Home/HomePage');
 })->name('home');
 
-Route::get('/recommendations', function () {
+Route::get('/destinations', function () {
     return Inertia::render('Recommendations/RecommendationResultPage');
-})->name('recommendations');
+})->name('destinations');
+
+Route::redirect('/recommendations', '/destinations', 301);
 
 Route::get('/destination', function () {
     return Inertia::render('Destination/DestinationDetailPage');

@@ -17,7 +17,7 @@ interface NavbarProps {
 
 const defaultItems: NavbarItem[] = [
     { label: 'Beranda', href: '/' },
-    { label: 'Rekomendasi', href: '/recommendations' },
+    { label: 'Destinasi', href: '/destinations' },
     { label: 'Kalender', href: '/calendar' },
     { label: 'Tentang', href: '#about' },
 ];
@@ -60,7 +60,7 @@ export default function Navbar({ brand = 'AgroVisit Batu', items = defaultItems,
                     {brand}
                 </Link>
 
-                <div className="hidden items-center gap-8 text-sm font-medium tracking-tight md:flex">
+                <div className="hidden items-center gap-8 text-l font-medium tracking-tight md:flex">
                     {items.map((item) => (
                         <Link
                             key={`${item.label}-${item.href}`}
@@ -77,10 +77,10 @@ export default function Navbar({ brand = 'AgroVisit Batu', items = defaultItems,
 
                 <div className="flex items-center gap-2">
                     <button type="button" aria-label="Notifications" className={iconButtonClassName}>
-                        <Bell className="h-5 w-5" />
+                        <Bell className="h-6 w-6" />
                     </button>
                     <button type="button" aria-label="Account" className={iconButtonClassName}>
-                        <CircleUserRound className="h-5 w-5" />
+                        <CircleUserRound className="h-6 w-6" />
                     </button>
                 </div>
             </div>
