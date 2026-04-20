@@ -29,15 +29,15 @@ const Nav = () => (
                 >
                     <ArrowLeft size={20} />
                 </Link>
-                <span className="text-2xl font-bold tracking-tight text-[var(--detail-primary)]">AgroVisit Batu</span>
+                <span className="text-2xl font-bold tracking-tight text-[var(--detail-primary)]">Everbloom</span>
             </div>
             <div className="flex items-center gap-3">
-                <button className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--detail-surface-lowest)] text-[var(--detail-on-surface)] shadow-sm transition-all hover:bg-[var(--detail-surface-high)]">
+                {/* <button className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--detail-surface-lowest)] text-[var(--detail-on-surface)] shadow-sm transition-all hover:bg-[var(--detail-surface-high)]">
                     <Bell size={20} />
                 </button>
                 <button className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--detail-surface-lowest)] text-[var(--detail-on-surface)] shadow-sm transition-all hover:bg-[var(--detail-surface-high)]">
                     <User size={20} />
-                </button>
+                </button> */}
             </div>
         </div>
     </nav>
@@ -158,7 +158,7 @@ export default function DestinationDetailPage({ destination }: DestinationDetail
             <div className="px-6 pb-40 md:pb-44">
                 <Footer className="mx-auto mt-16 max-w-7xl rounded-[2.5rem]" />
             </div>
-            <BottomBar bookingLabel={destination.bookingLabel} />
+            {/* <BottomBar bookingLabel={destination.bookingLabel} /> */}
             <MobileNav />
         </div>
     );
