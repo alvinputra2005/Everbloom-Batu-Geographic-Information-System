@@ -120,7 +120,7 @@ export default function RecommendationFilters({
                 />
             </div>
 
-            <NearbyMapCard nearby={nearby} />
+            {/* <NearbyMapCard nearby={nearby} /> */}
         </aside>
     );
 }
