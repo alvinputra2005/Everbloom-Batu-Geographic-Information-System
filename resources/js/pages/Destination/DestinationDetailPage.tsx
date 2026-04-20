@@ -1,18 +1,8 @@
 import { Head, Link } from '@inertiajs/react';
-import {
-    ArrowLeft,
-    Bell,
-    Calendar,
-    Heart,
-    Home,
-    Info,
-    Map as MapIcon,
-    Ticket,
-    Trees,
-    User,
-} from 'lucide-react';
+import { ArrowLeft, Bell, Calendar, Heart, Home, Info, Map as MapIcon, Ticket, Trees, User } from 'lucide-react';
 import { motion } from 'motion/react';
 
+import Footer from '@/components/common/Footer';
 import DestinationHero from '@/features/destination/components/DestinationHero';
 import DestinationInfo from '@/features/destination/components/DestinationInfo';
 import FacilityList from '@/features/destination/components/FacilityList';
@@ -54,23 +44,13 @@ const Nav = () => (
 );
 
 interface BottomBarProps {
-    ticketPrice: string;
     bookingLabel: string;
 }
 
-const BottomBar = ({ ticketPrice, bookingLabel }: BottomBarProps) => (
+const BottomBar = ({ bookingLabel }: BottomBarProps) => (
     <div className="ambient-bloom fixed bottom-0 left-0 z-50 w-full rounded-t-xl bg-white/80 p-6 backdrop-blur-2xl md:p-8">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6">
-            <div className="hidden md:block">
-                <div className="text-sm font-medium text-[var(--detail-on-surface-variant)]">Harga Tiket</div>
-                <div className="text-2xl font-extrabold text-[var(--detail-primary)]">
-                    {ticketPrice}
-                    {ticketPrice === 'Free Entry' ? null : (
-                        <span className="text-sm font-normal text-[var(--detail-on-surface-variant)]"> / orang</span>
-                    )}
-                </div>
-            </div>
-            <div className="flex flex-1 gap-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-4">
+            <div className="flex w-full max-w-6xl gap-4">
                 <button className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--detail-surface-high)] px-6 py-4 font-bold text-[var(--detail-on-surface)] transition-all hover:bg-[var(--detail-surface-highest)]">
                     <Heart size={20} /> Simpan
                 </button>
@@ -175,7 +155,10 @@ export default function DestinationDetailPage({ destination }: DestinationDetail
                     </motion.div>
                 </div>
             </main>
-            <BottomBar ticketPrice={destination.ticketPrice} bookingLabel={destination.bookingLabel} />
+            <div className="px-6 pb-40 md:pb-44">
+                <Footer className="mx-auto mt-16 max-w-7xl rounded-[2.5rem]" />
+            </div>
+            <BottomBar bookingLabel={destination.bookingLabel} />
             <MobileNav />
         </div>
     );

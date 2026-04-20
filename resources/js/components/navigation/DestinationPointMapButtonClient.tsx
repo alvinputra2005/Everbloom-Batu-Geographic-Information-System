@@ -46,7 +46,7 @@ export default function DestinationPointMapButtonClient({ destinationName, coord
                 </button>
             </DialogTrigger>
 
-            <DialogContent className="max-h-[88vh] w-[min(92vw,760px)] overflow-hidden rounded-[1.75rem] border-0 bg-[var(--detail-surface-lowest)] p-0 shadow-[0_30px_90px_rgba(16,24,40,0.24)]">
+            <DialogContent className="max-h-[calc(100dvh-1.5rem)] w-[min(92vw,760px)] overflow-hidden rounded-[1.75rem] border-0 bg-[var(--detail-surface-lowest)] p-0 shadow-[0_30px_90px_rgba(16,24,40,0.24)] sm:max-h-[90vh]">
                 <DialogHeader className="border-b border-black/5 px-5 py-5 text-left sm:px-6">
                     <DialogTitle className="flex items-center gap-2 text-xl text-[var(--detail-primary)]">
                         <MapIcon className="h-5 w-5" />
@@ -57,7 +57,7 @@ export default function DestinationPointMapButtonClient({ destinationName, coord
                     </DialogDescription>
                 </DialogHeader>
 
-                <div className="space-y-4 px-5 py-5 sm:px-6">
+                <div className="max-h-[calc(100dvh-8rem)] space-y-4 overflow-y-auto px-5 py-5 pb-6 sm:max-h-[calc(90vh-8rem)] sm:px-6">
                     <div className="overflow-hidden rounded-[1.5rem] border border-black/5">
                         <MapContainer center={point} zoom={16} scrollWheelZoom className="h-[20rem] w-full sm:h-[24rem]">
                             <TileLayer

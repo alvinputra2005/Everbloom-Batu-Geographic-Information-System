@@ -190,7 +190,7 @@ export default function DestinationRouteButtonClient({
                 </button>
             </DialogTrigger>
 
-            <DialogContent className="max-h-[88vh] w-[min(92vw,860px)] overflow-hidden rounded-[1.9rem] border-0 bg-[var(--detail-surface-lowest)] p-0 shadow-[0_30px_90px_rgba(16,24,40,0.28)]">
+            <DialogContent className="max-h-[calc(100dvh-1.5rem)] w-[min(92vw,860px)] overflow-hidden rounded-[1.9rem] border-0 bg-[var(--detail-surface-lowest)] p-0 shadow-[0_30px_90px_rgba(16,24,40,0.28)] sm:max-h-[90vh]">
                 <DialogHeader className="border-b border-black/5 bg-[linear-gradient(135deg,rgba(19,82,39,0.08),rgba(180,83,9,0.06))] px-5 py-5 text-left sm:px-6">
                     <DialogTitle className="flex items-center gap-2 text-lg text-[var(--detail-primary)] sm:text-xl">
                         <Route className="h-5 w-5" />
@@ -201,7 +201,7 @@ export default function DestinationRouteButtonClient({
                     </DialogDescription>
                 </DialogHeader>
 
-                <div className="max-h-[calc(88vh-96px)] overflow-y-auto px-5 py-5 sm:px-6">
+                <div className="max-h-[calc(100dvh-8rem)] overflow-y-auto px-5 py-5 pb-6 sm:max-h-[calc(90vh-8rem)] sm:px-6">
                     <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                         <div className="rounded-2xl bg-[var(--detail-surface-high)] px-4 py-3">
                             <div className="mb-1 text-xs font-bold tracking-[0.2em] text-[var(--detail-on-surface-variant)] uppercase">Status</div>
