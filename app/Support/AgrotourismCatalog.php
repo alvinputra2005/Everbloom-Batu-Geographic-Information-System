@@ -21,6 +21,7 @@ class AgrotourismCatalog
                 'image' => $this->image('Kusuma-agro-valid.jpg'),
                 'title' => 'Kusuma Agro',
                 'location' => 'Sisir, Batu',
+                'coordinates' => ['lat' => -7.8824957, 'lng' => 112.5148648],
                 'tags' => 'Panen Apel & Jeruk',
                 'status' => 'Peak Status',
                 'time' => 'Buka 08:00',
@@ -32,6 +33,7 @@ class AgrotourismCatalog
                 'image' => $this->image('Petik-Apel-Kebun-8-Kota-Batu.jpeg'),
                 'title' => 'Petik Apel Kebun 8',
                 'location' => 'Bumiaji, Batu',
+                'coordinates' => ['lat' => -7.7817893, 'lng' => 112.5281206],
                 'tags' => 'Apel Manalagi',
                 'status' => 'Peak Status',
                 'time' => 'Buka 08:30',
@@ -43,6 +45,7 @@ class AgrotourismCatalog
                 'image' => $this->image('Agrowisata-Petik-Jeruk.webp'),
                 'title' => 'Agrowisata Petik Jeruk',
                 'location' => 'Bumiaji, Batu',
+                'coordinates' => ['lat' => -7.8390730, 'lng' => 112.5282943],
                 'tags' => 'Jeruk Keprok Batu',
                 'status' => 'Available',
                 'time' => 'Buka 08:00',
@@ -54,6 +57,7 @@ class AgrotourismCatalog
                 'image' => $this->image('Agrorakyat-Apple-Packing Tourism.jpeg'),
                 'title' => 'Agrorakyat Apple Packing',
                 'location' => 'Punten, Batu',
+                'coordinates' => ['lat' => -7.8528842, 'lng' => 112.5271493],
                 'tags' => 'Edukasi Apel Batu',
                 'status' => 'Available',
                 'time' => 'Buka 09:00',
@@ -65,6 +69,7 @@ class AgrotourismCatalog
                 'image' => $this->image('Lumbung-strawberry.webp'),
                 'title' => 'Lumbung Strawberry',
                 'location' => 'Pandanrejo, Batu',
+                'coordinates' => ['lat' => -7.8688734, 'lng' => 112.5417603],
                 'tags' => 'Greenhouse Strawberry',
                 'status' => 'Off-Season',
                 'time' => 'Buka 09:00',
@@ -76,6 +81,7 @@ class AgrotourismCatalog
                 'image' => $this->image('Selecta-Garden.jpg'),
                 'title' => 'Taman Bunga Selecta',
                 'location' => 'Tulungrejo, Batu',
+                'coordinates' => ['lat' => -7.8175, 'lng' => 112.5258],
                 'tags' => 'Krisan & Hydrangea',
                 'status' => 'Available',
                 'time' => 'Buka 07:00',
@@ -87,6 +93,7 @@ class AgrotourismCatalog
                 'image' => $this->image('Batu-Love-Garden.jpg'),
                 'title' => 'Batu Love Garden',
                 'location' => 'Oro-Oro Ombo, Batu',
+                'coordinates' => ['lat' => -7.8634413, 'lng' => 112.5428768],
                 'tags' => 'Taman Florikultura',
                 'status' => 'Available',
                 'time' => 'Buka 08:30',
@@ -98,6 +105,7 @@ class AgrotourismCatalog
                 'image' => $this->image('Kebun-Hortensia.jpg'),
                 'title' => 'Kebun Hortensia',
                 'location' => 'Tulungrejo, Batu',
+                'coordinates' => ['lat' => -7.7952314, 'lng' => 112.5229570],
                 'tags' => 'Hydrangea Highlands',
                 'status' => 'Peak Status',
                 'time' => 'Buka 08:00',
@@ -109,6 +117,7 @@ class AgrotourismCatalog
                 'image' => $this->image('Wisata-kebun-bunga-coban-talun.jpg'),
                 'title' => 'Kebun Bunga Coban Talun',
                 'location' => 'Gunungsari, Batu',
+                'coordinates' => ['lat' => -7.800929, 'lng' => 112.516631],
                 'tags' => 'Garden Trail',
                 'status' => 'Available',
                 'time' => 'Buka 08:00',
@@ -120,6 +129,7 @@ class AgrotourismCatalog
                 'image' => $this->image('Ladang-Bunga-Matahari.avif'),
                 'title' => 'Ladang Bunga Matahari',
                 'location' => 'Bumiaji, Batu',
+                'coordinates' => ['lat' => -7.8673111, 'lng' => 112.5525139],
                 'tags' => 'Sunflower Field',
                 'status' => 'Peak Status',
                 'time' => 'Buka 08:00',
@@ -194,6 +204,7 @@ class AgrotourismCatalog
                 'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYL8C7GZgt7_YFv2LND0HcLEQ4a-a-FS8LczSFtOBTYMDfymTs2f5fchtP473OFhtUaTJj53GUUHSZUYljHHS63W6WNlhCEwjzCGA8DU3B1iolIAzDU0d-Fu1knm9O6l1ItM7LWw96VmSr444O4IWFP2qUPv_jWnawWQMKf5IJe3d6fjBYcD4H79r5mRTTg6_oGY8YXwV33CXb7UtP7xuii-gCwgLcjKanA-_Y8vo5OVXV-e3rEviXS92R8fMUCCeSktw2gdZwRWh_',
                 'title' => 'Kebun Apel Bumiaji',
                 'location' => 'Bumiaji, Batu',
+                'coordinates' => ['lat' => -7.80893, 'lng' => 112.53301],
                 'tags' => 'Manalagi Apple',
                 'status' => 'Peak Status',
                 'time' => 'Buka 08:00',
@@ -205,6 +216,7 @@ class AgrotourismCatalog
                 'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNP3ODtQnx9VdfnZcEq-TWyn4LKqo0irgW4vrRwFB7MPjNSEzWWj2mDRL0j_0NMAGPRIrq4dRw4Qr3iOjwpjZH3r55RjQuJwxqJurlVemFxbQCfqblgEADnBCgOJ-p-0o7mA0DCRMbWqJDR-_SAkG3hnMosIpU4PITx-XnIQxVIdz2noxfyqWmL1Qv2RJbtRJ0jfJdBGKfM6lqJ3VPTmCynup9d_zi6HEL6RBR5gPGO9fXd-NCBU1k8NpGcbIjBukNSXfTEdxrM0V6',
                 'title' => 'Pusat Bunga Sidomulyo',
                 'location' => 'Sidomulyo, Batu',
+                'coordinates' => ['lat' => -7.87921, 'lng' => 112.51962],
                 'tags' => 'Roses & Orchids',
                 'status' => 'Available',
                 'time' => 'Buka 07:00',
@@ -235,7 +247,9 @@ class AgrotourismCatalog
                 'specialty' => 'Manalagi Apple',
                 'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYL8C7GZgt7_YFv2LND0HcLEQ4a-a-FS8LczSFtOBTYMDfymTs2f5fchtP473OFhtUaTJj53GUUHSZUYljHHS63W6WNlhCEwjzCGA8DU3B1iolIAzDU0d-Fu1knm9O6l1ItM7LWw96VmSr444O4IWFP2qUPv_jWnawWQMKf5IJe3d6fjBYcD4H79r5mRTTg6_oGY8YXwV33CXb7UtP7xuii-gCwgLcjKanA-_Y8vo5OVXV-e3rEviXS92R8fMUCCeSktw2gdZwRWh_',
                 'detailHref' => '/destinations/kebun-apel-bumiaji',
-                'mapHref' => '#map',
+                'coordinates' => ['lat' => -7.80893, 'lng' => 112.53301],
+                'mapHref' => $this->openStreetMapHref(-7.80893, 112.53301),
+                'navigationHref' => $this->googleMapsDirectionsHref(-7.80893, 112.53301),
                 'landmarks' => ['jatim-park-1', 'museum-angkut'],
                 'seasonMonths' => [5, 6, 7],
             ],
@@ -252,7 +266,9 @@ class AgrotourismCatalog
                 'specialty' => 'Roses & Orchids',
                 'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNP3ODtQnx9VdfnZcEq-TWyn4LKqo0irgW4vrRwFB7MPjNSEzWWj2mDRL0j_0NMAGPRIrq4dRw4Qr3iOjwpjZH3r55RjQuJwxqJurlVemFxbQCfqblgEADnBCgOJ-p-0o7mA0DCRMbWqJDR-_SAkG3hnMosIpU4PITx-XnIQxVIdz2noxfyqWmL1Qv2RJbtRJ0jfJdBGKfM6lqJ3VPTmCynup9d_zi6HEL6RBR5gPGO9fXd-NCBU1k8NpGcbIjBukNSXfTEdxrM0V6',
                 'detailHref' => '/destinations/pusat-bunga-sidomulyo',
-                'mapHref' => '#map',
+                'coordinates' => ['lat' => -7.87921, 'lng' => 112.51962],
+                'mapHref' => $this->openStreetMapHref(-7.87921, 112.51962),
+                'navigationHref' => $this->googleMapsDirectionsHref(-7.87921, 112.51962),
                 'landmarks' => ['alun-alun-batu', 'jatim-park-2'],
                 'seasonMonths' => [3, 4, 5, 6],
             ],
@@ -292,7 +308,9 @@ class AgrotourismCatalog
                 'specialty' => $destination['tags'],
                 'image' => $destination['image'],
                 'detailHref' => '/destinations/'.$destination['slug'],
-                'mapHref' => '#map',
+                'coordinates' => $destination['coordinates'],
+                'mapHref' => $this->openStreetMapHref($destination['coordinates']['lat'], $destination['coordinates']['lng']),
+                'navigationHref' => $this->googleMapsDirectionsHref($destination['coordinates']['lat'], $destination['coordinates']['lng']),
                 'landmarks' => $landmarkCycle[$index % count($landmarkCycle)],
                 'seasonMonths' => $seasonMonthCycle[$index % count($seasonMonthCycle)],
             ];
@@ -451,8 +469,9 @@ class AgrotourismCatalog
             'address' => 'Kawasan '.$destination['location'].', Kota Batu, Jawa Timur',
             'mapImage' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuCbFijUZIYovifvURwZX7hKRui6wPLDzrif1-EpIupJ8F4_qXKl2a27sfuaV3suyulOk6MMVUpJL0uUmM58y1AgJ8eZyT1ZPy-b8hu4t-NgRetXnJBXIBs15FJQFLU3ls6ASRqvEYs-ENrdmygJDqxI4UubdnLeET2oiYc2JiBu3BcaYPUbtVGJ4JUiNAvZbnlAInCejCnZ0enEk-4bhQ9aXHj5i0lM420-vgmoYSDTQOTki9Q0Mm4dAq7O7C7M-cmkjno7FS1xWeTI',
             'mapImageAlt' => 'Peta area '.$destination['title'],
-            'mapHref' => '#map',
-            'navigationHref' => '#map',
+            'coordinates' => $destination['coordinates'],
+            'mapHref' => $this->openStreetMapHref($destination['coordinates']['lat'], $destination['coordinates']['lng']),
+            'navigationHref' => $this->googleMapsDirectionsHref($destination['coordinates']['lat'], $destination['coordinates']['lng']),
             'reviewMetrics' => $reviewMetricsByStatus[$destination['status']],
             'featuredReview' => $this->buildFeaturedReview($destination),
             'seasonal' => [
@@ -588,5 +607,15 @@ class AgrotourismCatalog
     protected function image(string $filename): string
     {
         return asset('images/'.rawurlencode($filename));
+    }
+
+    protected function openStreetMapHref(float $latitude, float $longitude): string
+    {
+        return sprintf('https://www.openstreetmap.org/?mlat=%s&mlon=%s#map=16/%s/%s', $latitude, $longitude, $latitude, $longitude);
+    }
+
+    protected function googleMapsDirectionsHref(float $latitude, float $longitude): string
+    {
+        return sprintf('https://www.google.com/maps/dir/?api=1&destination=%s,%s&travelmode=driving', $latitude, $longitude);
     }
 }

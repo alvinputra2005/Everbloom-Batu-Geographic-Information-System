@@ -1,7 +1,8 @@
 import { Link } from '@inertiajs/react';
-import { Ban, CheckCircle, Flower2, Leaf, Map as MapIcon, ShoppingBasket, Star, Utensils } from 'lucide-react';
+import { Ban, CheckCircle, Flower2, Leaf, ShoppingBasket, Star, Utensils } from 'lucide-react';
 import { motion } from 'motion/react';
 
+import DestinationRouteButton from '@/components/navigation/DestinationRouteButton';
 import type { RecommendationDestination } from '@/features/recommendations/types';
 
 interface DestinationCardProps {
@@ -104,13 +105,13 @@ export default function DestinationCard({ destination, index, hasEnteredView }: 
                     >
                         Lihat Detail
                     </Link>
-                    <Link
-                        href={destination.mapHref}
-                        aria-label={`Lihat peta ${destination.name}`}
-                        className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--rec-surface-high)] text-[var(--rec-on-surface-variant)] transition-colors hover:bg-[var(--rec-surface-highest)]"
-                    >
-                        <MapIcon className="h-5 w-5" />
-                    </Link>
+                    <DestinationRouteButton
+                        destinationName={destination.name}
+                        coordinates={destination.coordinates}
+                        mapHref={destination.mapHref}
+                        navigationHref={destination.navigationHref}
+                        variant="icon"
+                    />
                 </div>
             </div>
         </motion.article>

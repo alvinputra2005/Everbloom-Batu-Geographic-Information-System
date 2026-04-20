@@ -1,6 +1,7 @@
-import { Link } from '@inertiajs/react';
-import { Map as MapIcon, MapPin, Navigation } from 'lucide-react';
+import { Map as MapIcon, MapPin } from 'lucide-react';
 
+import DestinationPointMapButton from '@/components/navigation/DestinationPointMapButton';
+import DestinationRouteButton from '@/components/navigation/DestinationRouteButton';
 import type { DestinationDetail } from '@/features/destination/types';
 
 interface LocationCardProps {
@@ -23,18 +24,14 @@ export default function LocationCard({ destination }: LocationCardProps) {
             </div>
             <p className="text-sm leading-relaxed text-[var(--detail-on-surface-variant)]">{destination.address}</p>
             <div className="mt-6 flex gap-3">
-                <Link
-                    href={destination.mapHref}
-                    className="flex flex-1 items-center justify-center gap-2 rounded-xl border-2 border-[var(--detail-primary)] bg-white px-4 py-3 font-bold text-[var(--detail-primary)] transition-colors hover:bg-[var(--detail-primary-fixed)]"
-                >
-                    <MapIcon size={16} /> View Map
-                </Link>
-                <Link
-                    href={destination.navigationHref}
-                    className="chlorophyll-gradient flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-3 font-bold text-white shadow-md transition-all hover:scale-[1.02]"
-                >
-                    <Navigation size={16} /> Navigate
-                </Link>
+                <DestinationPointMapButton destinationName={destination.title} coordinates={destination.coordinates} address={destination.address} />
+                <DestinationRouteButton
+                    destinationName={destination.title}
+                    coordinates={destination.coordinates}
+                    mapHref={destination.mapHref}
+                    navigationHref={destination.navigationHref}
+                    variant="full"
+                />
             </div>
         </div>
     );
