@@ -25,7 +25,7 @@ const defaultItems: NavbarItem[] = [
 const iconButtonClassName =
     'inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--app-primary)] transition hover:bg-[var(--app-surface-muted)]';
 
-export default function Navbar({ brand = 'AgroVisit Batu', items = defaultItems, className }: NavbarProps) {
+export default function Navbar({ brand = 'Everbloom', items = defaultItems, className }: NavbarProps) {
     const { url } = usePage();
     const pathname = url.split('?')[0] || '/';
 
@@ -76,12 +76,12 @@ export default function Navbar({ brand = 'AgroVisit Batu', items = defaultItems,
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <button type="button" aria-label="Notifications" className={iconButtonClassName}>
+                    {/* <button type="button" aria-label="Notifications" className={iconButtonClassName}>
                         <Bell className="h-6 w-6" />
                     </button>
                     <button type="button" aria-label="Account" className={iconButtonClassName}>
                         <CircleUserRound className="h-6 w-6" />
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </nav>

@@ -22,8 +22,8 @@ const defaultLinks: FooterLink[] = [
 ];
 
 export default function Footer({
-    brand = 'AgroVisit Batu',
-    description = '© 2024 AgroVisit Batu. The Modern Naturalist’s Guide.',
+    brand = 'Everbloom',
+    description = '© 2026 Everbloom. The Modern Naturalist’s Guide.',
     links = defaultLinks,
     className,
 }: FooterProps) {

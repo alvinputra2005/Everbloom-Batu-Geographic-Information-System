@@ -14,6 +14,18 @@ interface DestinationCardProps {
 const hiddenState = { opacity: 0, y: 24 };
 const visibleState = { opacity: 1, y: 0 };
 
+function getStatusLabel(status: RecommendationDestination['status']) {
+    if (status === 'PEAK') {
+        return 'Puncak Musim';
+    }
+
+    if (status === 'AVAILABLE') {
+        return 'Tersedia';
+    }
+
+    return 'Luar Musim';
+}
+
 export default function DestinationCard({ destination, index, hasEnteredView }: DestinationCardProps) {
     const isPeak = destination.status === 'PEAK';
     const isAvailable = destination.status === 'AVAILABLE';
@@ -55,7 +67,7 @@ export default function DestinationCard({ destination, index, hasEnteredView }: 
                         {isPeak ? <Star className="h-3 w-3 fill-current" /> : null}
                         {isAvailable ? <CheckCircle className="h-3 w-3 fill-current" /> : null}
                         {isOffSeason ? <Ban className="h-3 w-3" /> : null}
-                        {destination.status} STATUS
+                        {getStatusLabel(destination.status)}
                     </span>
                 </div>
             </div>
@@ -88,7 +100,7 @@ export default function DestinationCard({ destination, index, hasEnteredView }: 
                             <span>{destination.price}</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                            <span className="font-bold">Hours:</span>
+                            <span className="font-bold">Jam:</span>
                             <span>{destination.hours}</span>
                         </div>
                     </div>

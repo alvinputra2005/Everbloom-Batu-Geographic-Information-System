@@ -36,14 +36,14 @@ export default function SeasonalConditionPanel({ destination }: SeasonalConditio
                     <div className="flex items-start gap-4 rounded-lg bg-white/50 p-4">
                         <ShoppingBasket className="shrink-0 text-[var(--detail-primary)]" size={24} />
                         <div>
-                            <h4 className="font-bold text-[var(--detail-on-surface)]">Kualitas Buah</h4>
+                            <h4 className="font-bold text-[var(--detail-on-surface)]">Kondisi Komoditas</h4>
                             <p className="text-sm text-[var(--detail-on-surface-variant)]">{destination.seasonal.produceDescription}</p>
                         </div>
                     </div>
                 </div>
                 <div className="rounded-lg bg-[var(--detail-surface-lowest)] p-6 shadow-sm">
                     <div className="mb-4 flex items-center justify-between">
-                        <span className="font-bold text-[var(--detail-on-surface)]">Peak Months 2026</span>
+                        <span className="font-bold text-[var(--detail-on-surface)]">Puncak Musim 2026</span>
                         <div className="flex gap-1">
                             <div className="h-3 w-3 rounded-full bg-[var(--detail-primary)]" />
                             <div className="h-3 w-3 rounded-full bg-[var(--detail-secondary-fixed)]" />

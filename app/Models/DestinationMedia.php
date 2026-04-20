@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Category extends Model
+class DestinationMedia extends Model
 {
     use HasFactory;
 
@@ -16,10 +16,10 @@ class Category extends Model
     protected $guarded = [];
 
     /**
-     * @return HasMany<Destination, $this>
+     * @return BelongsTo<Destination, $this>
      */
-    public function destinations(): HasMany
+    public function destination(): BelongsTo
     {
-        return $this->hasMany(Destination::class);
+        return $this->belongsTo(Destination::class);
     }
 }

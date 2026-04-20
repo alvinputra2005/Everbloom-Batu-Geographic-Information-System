@@ -42,7 +42,7 @@ export default function DestinationPointMapButtonClient({ destinationName, coord
                         className,
                     )}
                 >
-                    <MapIcon size={16} /> View Map
+                    <MapIcon size={16} /> Lihat Peta
                 </button>
             </DialogTrigger>
 

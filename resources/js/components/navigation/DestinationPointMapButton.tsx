@@ -24,7 +24,7 @@ export default function DestinationPointMapButton(props: DestinationPointMapButt
                 disabled
                 className={props.className ?? 'flex flex-1 items-center justify-center rounded-xl border-2 border-[var(--detail-primary)] px-4 py-3'}
             >
-                View Map
+                Lihat Peta
             </button>
         );
     }

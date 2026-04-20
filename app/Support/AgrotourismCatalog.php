@@ -2,6 +2,9 @@
 
 namespace App\Support;
 
+use App\Models\Destination;
+use Illuminate\Database\Eloquent\Builder;
+
 class AgrotourismCatalog
 {
     public function filters(): array
@@ -15,128 +18,13 @@ class AgrotourismCatalog
 
     public function homeDestinations(): array
     {
-        return [
-            [
-                'slug' => 'kusuma-agro',
-                'image' => $this->image('Kusuma-agro-valid.jpg'),
-                'title' => 'Kusuma Agro',
-                'location' => 'Sisir, Batu',
-                'coordinates' => ['lat' => -7.8824957, 'lng' => 112.5148648],
-                'tags' => 'Panen Apel & Jeruk',
-                'status' => 'Peak Status',
-                'time' => 'Buka 08:00',
-                'category' => 'buah',
-                'description' => 'Wisata petik buah dengan panorama perbukitan dan area kebun yang luas.',
-            ],
-            [
-                'slug' => 'petik-apel-kebun-8',
-                'image' => $this->image('Petik-Apel-Kebun-8-Kota-Batu.jpeg'),
-                'title' => 'Petik Apel Kebun 8',
-                'location' => 'Bumiaji, Batu',
-                'coordinates' => ['lat' => -7.7817893, 'lng' => 112.5281206],
-                'tags' => 'Apel Manalagi',
-                'status' => 'Peak Status',
-                'time' => 'Buka 08:30',
-                'category' => 'buah',
-                'description' => 'Destinasi petik apel yang populer untuk menikmati buah segar langsung dari pohonnya.',
-            ],
-            [
-                'slug' => 'agrowisata-petik-jeruk',
-                'image' => $this->image('Agrowisata-Petik-Jeruk.webp'),
-                'title' => 'Agrowisata Petik Jeruk',
-                'location' => 'Bumiaji, Batu',
-                'coordinates' => ['lat' => -7.8390730, 'lng' => 112.5282943],
-                'tags' => 'Jeruk Keprok Batu',
-                'status' => 'Available',
-                'time' => 'Buka 08:00',
-                'category' => 'buah',
-                'description' => 'Kebun jeruk yang cocok untuk keluarga dengan suasana segar khas dataran tinggi.',
-            ],
-            [
-                'slug' => 'agrorakyat-apple-packing',
-                'image' => $this->image('Agrorakyat-Apple-Packing Tourism.jpeg'),
-                'title' => 'Agrorakyat Apple Packing',
-                'location' => 'Punten, Batu',
-                'coordinates' => ['lat' => -7.8528842, 'lng' => 112.5271493],
-                'tags' => 'Edukasi Apel Batu',
-                'status' => 'Available',
-                'time' => 'Buka 09:00',
-                'category' => 'buah',
-                'description' => 'Perpaduan wisata edukasi dan produk apel lokal yang menarik untuk kunjungan singkat.',
-            ],
-            [
-                'slug' => 'lumbung-strawberry',
-                'image' => $this->image('Lumbung-strawberry.webp'),
-                'title' => 'Lumbung Strawberry',
-                'location' => 'Pandanrejo, Batu',
-                'coordinates' => ['lat' => -7.8688734, 'lng' => 112.5417603],
-                'tags' => 'Greenhouse Strawberry',
-                'status' => 'Off-Season',
-                'time' => 'Buka 09:00',
-                'category' => 'buah',
-                'description' => 'Greenhouse stroberi dengan pengalaman panen langsung dan suasana yang nyaman.',
-            ],
-            [
-                'slug' => 'taman-bunga-selecta',
-                'image' => $this->image('Selecta-Garden.jpg'),
-                'title' => 'Taman Bunga Selecta',
-                'location' => 'Tulungrejo, Batu',
-                'coordinates' => ['lat' => -7.8175, 'lng' => 112.5258],
-                'tags' => 'Krisan & Hydrangea',
-                'status' => 'Available',
-                'time' => 'Buka 07:00',
-                'category' => 'bunga',
-                'description' => 'Taman bunga ikonik dengan hamparan warna yang luas dan udara pegunungan yang sejuk.',
-            ],
-            [
-                'slug' => 'batu-love-garden',
-                'image' => $this->image('Batu-Love-Garden.jpg'),
-                'title' => 'Batu Love Garden',
-                'location' => 'Oro-Oro Ombo, Batu',
-                'coordinates' => ['lat' => -7.8634413, 'lng' => 112.5428768],
-                'tags' => 'Taman Florikultura',
-                'status' => 'Available',
-                'time' => 'Buka 08:30',
-                'category' => 'bunga',
-                'description' => 'Ruang wisata bunga modern dengan spot foto tematik dan koleksi tanaman hias.',
-            ],
-            [
-                'slug' => 'kebun-hortensia',
-                'image' => $this->image('Kebun-Hortensia.jpg'),
-                'title' => 'Kebun Hortensia',
-                'location' => 'Tulungrejo, Batu',
-                'coordinates' => ['lat' => -7.7952314, 'lng' => 112.5229570],
-                'tags' => 'Hydrangea Highlands',
-                'status' => 'Peak Status',
-                'time' => 'Buka 08:00',
-                'category' => 'bunga',
-                'description' => 'Hamparan hortensia di area sejuk yang cocok untuk wisata santai dan fotografi.',
-            ],
-            [
-                'slug' => 'wisata-kebun-bunga-coban-talun',
-                'image' => $this->image('Wisata-kebun-bunga-coban-talun.jpg'),
-                'title' => 'Kebun Bunga Coban Talun',
-                'location' => 'Gunungsari, Batu',
-                'coordinates' => ['lat' => -7.800929, 'lng' => 112.516631],
-                'tags' => 'Garden Trail',
-                'status' => 'Available',
-                'time' => 'Buka 08:00',
-                'category' => 'bunga',
-                'description' => 'Area kebun bunga yang berpadu dengan lanskap alam dan jalur wisata keluarga.',
-            ],
-            [
-                'slug' => 'ladang-bunga-matahari',
-                'image' => $this->image('Ladang-Bunga-Matahari.avif'),
-                'title' => 'Ladang Bunga Matahari',
-                'location' => 'Bumiaji, Batu',
-                'coordinates' => ['lat' => -7.8673111, 'lng' => 112.5525139],
-                'tags' => 'Sunflower Field',
-                'status' => 'Peak Status',
-                'time' => 'Buka 08:00',
-                'category' => 'bunga',
-                'description' => 'Ladang bunga matahari dengan karakter visual kuat untuk kunjungan dan swafoto.',
-            ],
-        ];
+        return $this->destinationQuery()
+            ->whereHas('display', fn (Builder $query) => $query->whereNotNull('home_sort_order'))
+            ->get()
+            ->sortBy(fn (Destination $destination) => $destination->display?->home_sort_order ?? PHP_INT_MAX)
+            ->values()
+            ->map(fn (Destination $destination) => $this->mapHomeDestination($destination))
+            ->all();
     }
 
     public function featuredHomeDestinationsByCategory(): array
@@ -165,13 +53,11 @@ class AgrotourismCatalog
 
     public function destinationDetailBySlug(string $slug): ?array
     {
-        foreach ($this->allDestinationSources() as $destination) {
-            if ($destination['slug'] === $slug) {
-                return $this->buildDestinationDetail($destination);
-            }
-        }
+        $destination = $this->destinationQuery()
+            ->where('slug', $slug)
+            ->first();
 
-        return null;
+        return $destination ? $this->buildDestinationDetail($this->mapStoredDestination($destination)) : null;
     }
 
     public function calendarPagePayload(): array
@@ -196,140 +82,28 @@ class AgrotourismCatalog
         return [...$fruit, ...$flower];
     }
 
-    protected function supplementalDestinations(): array
-    {
-        return [
-            [
-                'slug' => 'kebun-apel-bumiaji',
-                'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYL8C7GZgt7_YFv2LND0HcLEQ4a-a-FS8LczSFtOBTYMDfymTs2f5fchtP473OFhtUaTJj53GUUHSZUYljHHS63W6WNlhCEwjzCGA8DU3B1iolIAzDU0d-Fu1knm9O6l1ItM7LWw96VmSr444O4IWFP2qUPv_jWnawWQMKf5IJe3d6fjBYcD4H79r5mRTTg6_oGY8YXwV33CXb7UtP7xuii-gCwgLcjKanA-_Y8vo5OVXV-e3rEviXS92R8fMUCCeSktw2gdZwRWh_',
-                'title' => 'Kebun Apel Bumiaji',
-                'location' => 'Bumiaji, Batu',
-                'coordinates' => ['lat' => -7.80893, 'lng' => 112.53301],
-                'tags' => 'Manalagi Apple',
-                'status' => 'Peak Status',
-                'time' => 'Buka 08:00',
-                'category' => 'buah',
-                'description' => 'Kebun apel dataran tinggi dengan jalur petik yang nyaman untuk kunjungan keluarga dan rombongan kecil.',
-            ],
-            [
-                'slug' => 'pusat-bunga-sidomulyo',
-                'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNP3ODtQnx9VdfnZcEq-TWyn4LKqo0irgW4vrRwFB7MPjNSEzWWj2mDRL0j_0NMAGPRIrq4dRw4Qr3iOjwpjZH3r55RjQuJwxqJurlVemFxbQCfqblgEADnBCgOJ-p-0o7mA0DCRMbWqJDR-_SAkG3hnMosIpU4PITx-XnIQxVIdz2noxfyqWmL1Qv2RJbtRJ0jfJdBGKfM6lqJ3VPTmCynup9d_zi6HEL6RBR5gPGO9fXd-NCBU1k8NpGcbIjBukNSXfTEdxrM0V6',
-                'title' => 'Pusat Bunga Sidomulyo',
-                'location' => 'Sidomulyo, Batu',
-                'coordinates' => ['lat' => -7.87921, 'lng' => 112.51962],
-                'tags' => 'Roses & Orchids',
-                'status' => 'Available',
-                'time' => 'Buka 07:00',
-                'category' => 'bunga',
-                'description' => 'Sentra florikultura Batu dengan deretan kios bunga, area edukasi, dan suasana kampung wisata yang aktif sepanjang hari.',
-            ],
-        ];
-    }
-
-    protected function allDestinationSources(): array
-    {
-        return [...$this->homeDestinations(), ...$this->supplementalDestinations()];
-    }
-
     protected function recommendationDestinations(): array
     {
-        $recommended = [
-            [
-                'id' => '1',
-                'name' => 'Kebun Apel Bumiaji',
-                'filterCategory' => 'buah',
-                'category' => 'Fruit & Harvest',
-                'categoryIcon' => 'eco',
-                'status' => 'PEAK',
-                'price' => 'Rp 25.000',
-                'priceValue' => 25000,
-                'hours' => '08:00 - 17:00',
-                'specialty' => 'Manalagi Apple',
-                'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYL8C7GZgt7_YFv2LND0HcLEQ4a-a-FS8LczSFtOBTYMDfymTs2f5fchtP473OFhtUaTJj53GUUHSZUYljHHS63W6WNlhCEwjzCGA8DU3B1iolIAzDU0d-Fu1knm9O6l1ItM7LWw96VmSr444O4IWFP2qUPv_jWnawWQMKf5IJe3d6fjBYcD4H79r5mRTTg6_oGY8YXwV33CXb7UtP7xuii-gCwgLcjKanA-_Y8vo5OVXV-e3rEviXS92R8fMUCCeSktw2gdZwRWh_',
-                'detailHref' => '/destinations/kebun-apel-bumiaji',
-                'coordinates' => ['lat' => -7.80893, 'lng' => 112.53301],
-                'mapHref' => $this->openStreetMapHref(-7.80893, 112.53301),
-                'navigationHref' => $this->googleMapsDirectionsHref(-7.80893, 112.53301),
-                'landmarks' => ['jatim-park-1', 'museum-angkut'],
-                'seasonMonths' => [5, 6, 7],
-            ],
-            [
-                'id' => '2',
-                'name' => 'Pusat Bunga Sidomulyo',
-                'filterCategory' => 'bunga',
-                'category' => 'Flower Village',
-                'categoryIcon' => 'local_florist',
-                'status' => 'AVAILABLE',
-                'price' => 'Free Entry',
-                'priceValue' => 0,
-                'hours' => '07:00 - 18:00',
-                'specialty' => 'Roses & Orchids',
-                'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNP3ODtQnx9VdfnZcEq-TWyn4LKqo0irgW4vrRwFB7MPjNSEzWWj2mDRL0j_0NMAGPRIrq4dRw4Qr3iOjwpjZH3r55RjQuJwxqJurlVemFxbQCfqblgEADnBCgOJ-p-0o7mA0DCRMbWqJDR-_SAkG3hnMosIpU4PITx-XnIQxVIdz2noxfyqWmL1Qv2RJbtRJ0jfJdBGKfM6lqJ3VPTmCynup9d_zi6HEL6RBR5gPGO9fXd-NCBU1k8NpGcbIjBukNSXfTEdxrM0V6',
-                'detailHref' => '/destinations/pusat-bunga-sidomulyo',
-                'coordinates' => ['lat' => -7.87921, 'lng' => 112.51962],
-                'mapHref' => $this->openStreetMapHref(-7.87921, 112.51962),
-                'navigationHref' => $this->googleMapsDirectionsHref(-7.87921, 112.51962),
-                'landmarks' => ['alun-alun-batu', 'jatim-park-2'],
-                'seasonMonths' => [3, 4, 5, 6],
-            ],
-        ];
-
-        $landmarkCycle = [
-            ['jatim-park-1', 'museum-angkut'],
-            ['alun-alun-batu', 'jatim-park-2'],
-            ['museum-angkut', 'alun-alun-batu'],
-            ['jatim-park-2', 'jatim-park-1'],
-        ];
-
-        $seasonMonthCycle = [
-            [5, 6, 7],
-            [3, 4, 5, 6],
-            [0, 1, 10, 11],
-            [7, 8, 9],
-        ];
-
-        $homeRecommendation = [];
-
-        foreach (array_values(array_slice($this->homeDestinations(), 0, 6)) as $index => $destination) {
-            $homeRecommendation[] = [
-                'id' => 'home-'.$destination['slug'],
-                'name' => $destination['title'],
-                'filterCategory' => $destination['category'],
-                'category' => $destination['category'] === 'buah' ? 'Fruit & Harvest' : 'Flower Village',
-                'categoryIcon' => $destination['category'] === 'buah' ? 'eco' : 'local_florist',
-                'status' => $this->mapRecommendationStatus($destination['status']),
-                'price' => $destination['category'] === 'buah'
-                    ? ($index % 2 === 0 ? 'Rp 35.000' : 'Rp 20.000')
-                    : ($index % 2 === 0 ? 'Rp 15.000' : 'Free Entry'),
-                'priceValue' => $destination['category'] === 'buah'
-                    ? ($index % 2 === 0 ? 35000 : 20000)
-                    : ($index % 2 === 0 ? 15000 : 0),
-                'hours' => str_replace('Buka ', '', $destination['time']).' - 17:00',
-                'specialty' => $destination['tags'],
-                'image' => $destination['image'],
-                'detailHref' => '/destinations/'.$destination['slug'],
-                'coordinates' => $destination['coordinates'],
-                'mapHref' => $this->openStreetMapHref($destination['coordinates']['lat'], $destination['coordinates']['lng']),
-                'navigationHref' => $this->googleMapsDirectionsHref($destination['coordinates']['lat'], $destination['coordinates']['lng']),
-                'landmarks' => $landmarkCycle[$index % count($landmarkCycle)],
-                'seasonMonths' => $seasonMonthCycle[$index % count($seasonMonthCycle)],
-            ];
-        }
-
-        return [...$recommended, ...$homeRecommendation];
+        return $this->destinationQuery()
+            ->whereHas('display', fn (Builder $query) => $query->whereNotNull('recommendation_sort_order'))
+            ->get()
+            ->sortBy(fn (Destination $destination) => $destination->display?->recommendation_sort_order ?? PHP_INT_MAX)
+            ->values()
+            ->map(fn (Destination $destination) => $this->mapRecommendationDestination($destination))
+            ->all();
     }
 
     protected function recommendationHeroContent(): array
     {
         return [
-            'monthLabel' => 'July 2024',
-            'categoryLabel' => 'Fruits & Flowers',
-            'title' => 'The Harvest Season is Here',
-            'description' => "Juli is great for sunflowers and citrus harvest. The dry mountain air in Batu provides perfect clarity for scenic orchard strolls. Based on your preferences, we've curated the best spots for this month.",
-            'insightLabel' => 'Insight',
-            'insightText' => 'High bloom intensity detected in northern Batu slopes today. Perfect for photography.',
+            'monthLabel' => 'April 2026',
+            'categoryLabel' => 'Wisata Buah & Bunga',
+            'title' => 'Musim Panen Sedang Berlangsung',
+            'description' => 'April adalah waktu yang nyaman untuk menikmati kebun buah dan taman bunga di Batu. Udara pegunungan yang sejuk membuat aktivitas jelajah, petik buah, dan berburu foto terasa lebih menyenangkan. Berdasarkan pilihanmu, kami menyiapkan destinasi terbaik untuk periode ini.',
+            'insightLabel' => 'Sorotan',
+            'insightText' => 'Intensitas mekarnya bunga di lereng utara Batu sedang tinggi minggu ini. Cocok untuk kunjungan santai dan fotografi.',
             'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYL8C7GZgt7_YFv2LND0HcLEQ4a-a-FS8LczSFtOBTYMDfymTs2f5fchtP473OFhtUaTJj53GUUHSZUYljHHS63W6WNlhCEwjzCGA8DU3B1iolIAzDU0d-Fu1knm9O6l1ItM7LWw96VmSr444O4IWFP2qUPv_jWnawWQMKf5IJe3d6fjBYcD4H79r5mRTTg6_oGY8YXwV33CXb7UtP7xuii-gCwgLcjKanA-_Y8vo5OVXV-e3rEviXS92R8fMUCCeSktw2gdZwRWh_',
-            'imageAlt' => 'Batu Orchard',
+            'imageAlt' => 'Kebun di Batu',
         ];
     }
 
@@ -345,33 +119,20 @@ class AgrotourismCatalog
 
     protected function nearbyInsight(): array
     {
+        $nearbyCount = max(Destination::query()->count(), 12);
+
         return [
-            'title' => 'Explore Nearby',
-            'description' => 'There are 12 more agro-destinations within a 5km radius from your current selection.',
-            'countLabel' => '12 Nearby Spots',
+            'title' => 'Jelajahi Sekitar',
+            'description' => sprintf('Masih ada %d destinasi agrowisata lain dalam radius 5 km dari pilihanmu saat ini.', $nearbyCount),
+            'countLabel' => sprintf('%d Titik Terdekat', $nearbyCount),
             'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBz5jIy4_Pr-jbJIWOqS3_9I7eEqui0YaHjoB6BcWFtkpcSdvUWoIouDySB6prS1FqHrfNwUtDVyTtIxBGacwSC9FEgfNhGrfY2GOvLwTZ4dPCw-8BcqWOL65aLrqFVZcxal7HZfmPegeqqS7NeJ59qrLMtQIGFKAu13_ZFYBY0XJWjUkEHn5M4oUtpgyJsu02h1ei2Mnna1lztua92v70tCB4MjSvzcGMdtGy6MnJoEG-nV_68LuvojhHskn_2veo2U2aot4me4TVs',
-            'imageAlt' => 'Batu Map',
+            'imageAlt' => 'Peta Batu',
             'href' => '#map',
         ];
     }
 
     protected function buildDestinationDetail(array $destination): array
     {
-        $ticketPriceBySlug = [
-            'kusuma-agro' => 'Rp 80.000',
-            'petik-apel-kebun-8' => 'Rp 35.000',
-            'agrowisata-petik-jeruk' => 'Rp 20.000',
-            'agrorakyat-apple-packing' => 'Rp 25.000',
-            'lumbung-strawberry' => 'Rp 30.000',
-            'taman-bunga-selecta' => 'Rp 15.000',
-            'batu-love-garden' => 'Rp 25.000',
-            'kebun-hortensia' => 'Rp 10.000',
-            'wisata-kebun-bunga-coban-talun' => 'Rp 15.000',
-            'ladang-bunga-matahari' => 'Rp 12.000',
-            'kebun-apel-bumiaji' => 'Rp 25.000',
-            'pusat-bunga-sidomulyo' => 'Free Entry',
-        ];
-
         $audienceByCategory = [
             'buah' => 'Keluarga',
             'bunga' => 'Keluarga',
@@ -437,12 +198,18 @@ class AgrotourismCatalog
             'Off-Season' => 'off-season',
         ];
 
-        $categoryLabelByKey = [
-            'buah' => 'Fruit & Harvest',
-            'bunga' => 'Flower Village',
+        $statusLabelByKey = [
+            'Peak Status' => 'Puncak Musim',
+            'Available' => 'Tersedia',
+            'Off-Season' => 'Luar Musim',
         ];
 
-        $ticketPrice = $ticketPriceBySlug[$destination['slug']] ?? ($destination['category'] === 'buah' ? 'Rp 25.000' : 'Rp 15.000');
+        $categoryLabelByKey = [
+            'buah' => 'Wisata Buah',
+            'bunga' => 'Wisata Bunga',
+        ];
+
+        $ticketPrice = $destination['ticketPrice'];
 
         return [
             'slug' => $destination['slug'],
@@ -452,12 +219,12 @@ class AgrotourismCatalog
             'location' => $destination['location'],
             'locationLabel' => $destination['location'].', Jawa Timur',
             'categoryLabel' => $categoryLabelByKey[$destination['category']],
-            'statusLabel' => $destination['status'],
+            'statusLabel' => $statusLabelByKey[$destination['status']],
             'statusTone' => $statusToneByLabel[$destination['status']],
             'rating' => $this->buildRating($destination),
             'reviewsLabel' => $this->buildReviewLabel($destination),
             'ticketPrice' => $ticketPrice,
-            'bookingLabel' => $ticketPrice === 'Free Entry' ? 'Kunjungi Sekarang' : 'Pesan Tiket Sekarang',
+            'bookingLabel' => $ticketPrice === 'Gratis' ? 'Kunjungi Sekarang' : 'Pesan Tiket Sekarang',
             'description' => $this->buildDetailDescription($destination),
             'stats' => [
                 ['icon' => 'ticket', 'label' => 'HTM Mulai', 'value' => $ticketPrice],
@@ -490,10 +257,7 @@ class AgrotourismCatalog
 
     protected function buildOpenHours(array $destination): string
     {
-        $openingHour = str_replace('Buka ', '', $destination['time']);
-        $closingHour = $destination['category'] === 'buah' ? '17:00' : '18:00';
-
-        return $openingHour.' - '.$closingHour;
+        return $destination['openingTime'].' - '.$destination['closingTime'];
     }
 
     protected function buildCommoditySummary(array $destination): string
@@ -530,10 +294,10 @@ class AgrotourismCatalog
     protected function buildReviewLabel(array $destination): string
     {
         if ($destination['category'] === 'buah') {
-            return $destination['status'] === 'Peak Status' ? '(2.4k reviews)' : '(1.7k reviews)';
+            return $destination['status'] === 'Peak Status' ? '(2,4 ribu ulasan)' : '(1,7 ribu ulasan)';
         }
 
-        return $destination['status'] === 'Peak Status' ? '(2.1k reviews)' : '(1.5k reviews)';
+        return $destination['status'] === 'Peak Status' ? '(2,1 ribu ulasan)' : '(1,5 ribu ulasan)';
     }
 
     protected function buildFeaturedReview(array $destination): array
@@ -604,9 +368,105 @@ class AgrotourismCatalog
         ];
     }
 
-    protected function image(string $filename): string
+    protected function mapHomeDestination(Destination $destination): array
     {
-        return asset('images/'.rawurlencode($filename));
+        $mapped = $this->mapStoredDestination($destination);
+
+        return [
+            'slug' => $mapped['slug'],
+            'image' => $mapped['image'],
+            'title' => $mapped['title'],
+            'location' => $mapped['location'],
+            'coordinates' => $mapped['coordinates'],
+            'tags' => $mapped['tags'],
+            'status' => $mapped['status'],
+            'time' => 'Buka '.$mapped['openingTime'],
+            'category' => $mapped['category'],
+            'description' => $mapped['description'],
+        ];
+    }
+
+    protected function mapStoredDestination(Destination $destination): array
+    {
+        $visitInfo = $destination->visitInfo;
+        $media = $destination->media;
+        $pricing = $destination->pricing;
+
+        return [
+            'id' => (string) $destination->id,
+            'slug' => $destination->slug,
+            'image' => $this->resolveImagePath($media?->image_path ?? ''),
+            'title' => $destination->title,
+            'location' => $visitInfo?->location ?? '',
+            'coordinates' => [
+                'lat' => $visitInfo?->latitude ?? 0.0,
+                'lng' => $visitInfo?->longitude ?? 0.0,
+            ],
+            'tags' => $destination->tags,
+            'status' => $destination->status,
+            'category' => $destination->category?->key ?? '',
+            'description' => $destination->description,
+            'openingTime' => $visitInfo?->opening_time ?? '08:00',
+            'closingTime' => $visitInfo?->closing_time ?? '17:00',
+            'ticketPrice' => $pricing?->ticket_price_label ?? 'Gratis',
+            'ticketPriceValue' => $pricing?->ticket_price_value ?? 0,
+            'recommendationPrice' => $pricing?->recommendation_price_label ?? $pricing?->ticket_price_label ?? 'Gratis',
+            'recommendationPriceValue' => $pricing?->recommendation_price_value ?? $pricing?->ticket_price_value ?? 0,
+            'landmarks' => $destination->landmarks
+                ->sortBy('sort_order')
+                ->pluck('landmark_key')
+                ->values()
+                ->all(),
+            'seasonMonths' => $destination->seasonMonths
+                ->sortBy('sort_order')
+                ->pluck('month')
+                ->map(fn (mixed $month): int => (int) $month)
+                ->values()
+                ->all(),
+        ];
+    }
+
+    protected function mapRecommendationDestination(Destination $destination): array
+    {
+        $mapped = $this->mapStoredDestination($destination);
+
+        return [
+            'id' => $mapped['id'],
+            'name' => $mapped['title'],
+            'filterCategory' => $mapped['category'],
+            'category' => $mapped['category'] === 'buah' ? 'Wisata Buah' : 'Wisata Bunga',
+            'categoryIcon' => $mapped['category'] === 'buah' ? 'eco' : 'local_florist',
+            'status' => $this->mapRecommendationStatus($mapped['status']),
+            'price' => $mapped['recommendationPrice'],
+            'priceValue' => $mapped['recommendationPriceValue'],
+            'hours' => $mapped['openingTime'].' - '.$mapped['closingTime'],
+            'specialty' => $mapped['tags'],
+            'image' => $mapped['image'],
+            'detailHref' => '/destinations/'.$mapped['slug'],
+            'coordinates' => $mapped['coordinates'],
+            'mapHref' => $this->openStreetMapHref($mapped['coordinates']['lat'], $mapped['coordinates']['lng']),
+            'navigationHref' => $this->googleMapsDirectionsHref($mapped['coordinates']['lat'], $mapped['coordinates']['lng']),
+            'landmarks' => $mapped['landmarks'],
+            'seasonMonths' => $mapped['seasonMonths'],
+        ];
+    }
+
+    protected function resolveImagePath(string $path): string
+    {
+        if ($path === '') {
+            return '';
+        }
+
+        if (filter_var($path, FILTER_VALIDATE_URL)) {
+            return $path;
+        }
+
+        $encodedPath = implode('/', array_map(
+            static fn (string $segment): string => rawurlencode($segment),
+            explode('/', ltrim($path, '/')),
+        ));
+
+        return asset($encodedPath);
     }
 
     protected function openStreetMapHref(float $latitude, float $longitude): string
@@ -617,5 +477,18 @@ class AgrotourismCatalog
     protected function googleMapsDirectionsHref(float $latitude, float $longitude): string
     {
         return sprintf('https://www.google.com/maps/dir/?api=1&destination=%s,%s&travelmode=driving', $latitude, $longitude);
+    }
+
+    protected function destinationQuery(): Builder
+    {
+        return Destination::query()->with([
+            'category',
+            'visitInfo',
+            'media',
+            'pricing',
+            'display',
+            'landmarks',
+            'seasonMonths',
+        ]);
     }
 }
