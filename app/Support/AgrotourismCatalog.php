@@ -2,8 +2,6 @@
 
 namespace App\Support;
 
-use Illuminate\Support\Facades\Vite;
-
 class AgrotourismCatalog
 {
     public function filters(): array
@@ -589,6 +587,6 @@ class AgrotourismCatalog
 
     protected function image(string $filename): string
     {
-        return Vite::asset('resources/images/'.$filename);
+        return asset('images/'.rawurlencode($filename));
     }
 }
