@@ -1,3 +1,8 @@
+export interface DestinationCoordinates {
+    lat: number;
+    lng: number;
+}
+
 export interface DestinationStat {
     icon: 'ticket' | 'clock' | 'sprout' | 'users';
     label: string;
@@ -57,6 +62,7 @@ export interface DestinationDetail {
     address: string;
     mapImage: string;
     mapImageAlt: string;
+    coordinates: DestinationCoordinates;
     mapHref: string;
     navigationHref: string;
     reviewMetrics: DestinationReviewMetric[];

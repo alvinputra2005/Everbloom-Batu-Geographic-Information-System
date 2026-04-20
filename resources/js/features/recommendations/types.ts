@@ -1,5 +1,10 @@
 import type { HomeDestinationCategory } from '@/features/home/types';
 
+export interface DestinationCoordinates {
+    lat: number;
+    lng: number;
+}
+
 export interface RecommendationHeroContent {
     monthLabel: string;
     categoryLabel: string;
@@ -23,7 +28,9 @@ export interface RecommendationDestination {
     hours: string;
     specialty: string;
     image: string;
+    coordinates: DestinationCoordinates;
     mapHref: string;
+    navigationHref: string;
     detailHref: string;
     landmarks: string[];
     seasonMonths: number[];
