@@ -70,11 +70,11 @@ class AgrotourismCatalog
                 'title' => 'Lumbung Strawberry',
                 'location' => 'Pandanrejo, Batu',
                 'coordinates' => ['lat' => -7.8688734, 'lng' => 112.5417603],
-                'tags' => 'Greenhouse Strawberry',
+                'tags' => 'Stroberi Rumah Kaca',
                 'status' => 'Off-Season',
                 'time' => 'Buka 09:00',
                 'category' => 'buah',
-                'description' => 'Greenhouse stroberi dengan pengalaman panen langsung dan suasana yang nyaman.',
+                'description' => 'Rumah kaca stroberi dengan pengalaman panen langsung dan suasana yang nyaman.',
             ],
             [
                 'slug' => 'taman-bunga-selecta',
@@ -82,7 +82,7 @@ class AgrotourismCatalog
                 'title' => 'Taman Bunga Selecta',
                 'location' => 'Tulungrejo, Batu',
                 'coordinates' => ['lat' => -7.8175, 'lng' => 112.5258],
-                'tags' => 'Krisan & Hydrangea',
+                'tags' => 'Krisan & Hortensia',
                 'status' => 'Available',
                 'time' => 'Buka 07:00',
                 'category' => 'bunga',
@@ -106,7 +106,7 @@ class AgrotourismCatalog
                 'title' => 'Kebun Hortensia',
                 'location' => 'Tulungrejo, Batu',
                 'coordinates' => ['lat' => -7.7952314, 'lng' => 112.5229570],
-                'tags' => 'Hydrangea Highlands',
+                'tags' => 'Hortensia Dataran Tinggi',
                 'status' => 'Peak Status',
                 'time' => 'Buka 08:00',
                 'category' => 'bunga',
@@ -118,7 +118,7 @@ class AgrotourismCatalog
                 'title' => 'Kebun Bunga Coban Talun',
                 'location' => 'Gunungsari, Batu',
                 'coordinates' => ['lat' => -7.800929, 'lng' => 112.516631],
-                'tags' => 'Garden Trail',
+                'tags' => 'Jalur Taman',
                 'status' => 'Available',
                 'time' => 'Buka 08:00',
                 'category' => 'bunga',
@@ -130,7 +130,7 @@ class AgrotourismCatalog
                 'title' => 'Ladang Bunga Matahari',
                 'location' => 'Bumiaji, Batu',
                 'coordinates' => ['lat' => -7.8673111, 'lng' => 112.5525139],
-                'tags' => 'Sunflower Field',
+                'tags' => 'Hamparan Bunga Matahari',
                 'status' => 'Peak Status',
                 'time' => 'Buka 08:00',
                 'category' => 'bunga',
@@ -205,7 +205,7 @@ class AgrotourismCatalog
                 'title' => 'Kebun Apel Bumiaji',
                 'location' => 'Bumiaji, Batu',
                 'coordinates' => ['lat' => -7.80893, 'lng' => 112.53301],
-                'tags' => 'Manalagi Apple',
+                'tags' => 'Apel Manalagi',
                 'status' => 'Peak Status',
                 'time' => 'Buka 08:00',
                 'category' => 'buah',
@@ -217,7 +217,7 @@ class AgrotourismCatalog
                 'title' => 'Pusat Bunga Sidomulyo',
                 'location' => 'Sidomulyo, Batu',
                 'coordinates' => ['lat' => -7.87921, 'lng' => 112.51962],
-                'tags' => 'Roses & Orchids',
+                'tags' => 'Mawar & Anggrek',
                 'status' => 'Available',
                 'time' => 'Buka 07:00',
                 'category' => 'bunga',
@@ -238,13 +238,13 @@ class AgrotourismCatalog
                 'id' => '1',
                 'name' => 'Kebun Apel Bumiaji',
                 'filterCategory' => 'buah',
-                'category' => 'Fruit & Harvest',
+                'category' => 'Wisata Buah',
                 'categoryIcon' => 'eco',
                 'status' => 'PEAK',
                 'price' => 'Rp 25.000',
                 'priceValue' => 25000,
                 'hours' => '08:00 - 17:00',
-                'specialty' => 'Manalagi Apple',
+                'specialty' => 'Apel Manalagi',
                 'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYL8C7GZgt7_YFv2LND0HcLEQ4a-a-FS8LczSFtOBTYMDfymTs2f5fchtP473OFhtUaTJj53GUUHSZUYljHHS63W6WNlhCEwjzCGA8DU3B1iolIAzDU0d-Fu1knm9O6l1ItM7LWw96VmSr444O4IWFP2qUPv_jWnawWQMKf5IJe3d6fjBYcD4H79r5mRTTg6_oGY8YXwV33CXb7UtP7xuii-gCwgLcjKanA-_Y8vo5OVXV-e3rEviXS92R8fMUCCeSktw2gdZwRWh_',
                 'detailHref' => '/destinations/kebun-apel-bumiaji',
                 'coordinates' => ['lat' => -7.80893, 'lng' => 112.53301],
@@ -257,13 +257,13 @@ class AgrotourismCatalog
                 'id' => '2',
                 'name' => 'Pusat Bunga Sidomulyo',
                 'filterCategory' => 'bunga',
-                'category' => 'Flower Village',
+                'category' => 'Wisata Bunga',
                 'categoryIcon' => 'local_florist',
                 'status' => 'AVAILABLE',
-                'price' => 'Free Entry',
+                'price' => 'Gratis',
                 'priceValue' => 0,
                 'hours' => '07:00 - 18:00',
-                'specialty' => 'Roses & Orchids',
+                'specialty' => 'Mawar & Anggrek',
                 'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNP3ODtQnx9VdfnZcEq-TWyn4LKqo0irgW4vrRwFB7MPjNSEzWWj2mDRL0j_0NMAGPRIrq4dRw4Qr3iOjwpjZH3r55RjQuJwxqJurlVemFxbQCfqblgEADnBCgOJ-p-0o7mA0DCRMbWqJDR-_SAkG3hnMosIpU4PITx-XnIQxVIdz2noxfyqWmL1Qv2RJbtRJ0jfJdBGKfM6lqJ3VPTmCynup9d_zi6HEL6RBR5gPGO9fXd-NCBU1k8NpGcbIjBukNSXfTEdxrM0V6',
                 'detailHref' => '/destinations/pusat-bunga-sidomulyo',
                 'coordinates' => ['lat' => -7.87921, 'lng' => 112.51962],
@@ -295,12 +295,12 @@ class AgrotourismCatalog
                 'id' => 'home-'.$destination['slug'],
                 'name' => $destination['title'],
                 'filterCategory' => $destination['category'],
-                'category' => $destination['category'] === 'buah' ? 'Fruit & Harvest' : 'Flower Village',
+                'category' => $destination['category'] === 'buah' ? 'Wisata Buah' : 'Wisata Bunga',
                 'categoryIcon' => $destination['category'] === 'buah' ? 'eco' : 'local_florist',
                 'status' => $this->mapRecommendationStatus($destination['status']),
                 'price' => $destination['category'] === 'buah'
                     ? ($index % 2 === 0 ? 'Rp 35.000' : 'Rp 20.000')
-                    : ($index % 2 === 0 ? 'Rp 15.000' : 'Free Entry'),
+                    : ($index % 2 === 0 ? 'Rp 15.000' : 'Gratis'),
                 'priceValue' => $destination['category'] === 'buah'
                     ? ($index % 2 === 0 ? 35000 : 20000)
                     : ($index % 2 === 0 ? 15000 : 0),
@@ -322,14 +322,14 @@ class AgrotourismCatalog
     protected function recommendationHeroContent(): array
     {
         return [
-            'monthLabel' => 'July 2024',
-            'categoryLabel' => 'Fruits & Flowers',
-            'title' => 'The Harvest Season is Here',
-            'description' => "Juli is great for sunflowers and citrus harvest. The dry mountain air in Batu provides perfect clarity for scenic orchard strolls. Based on your preferences, we've curated the best spots for this month.",
-            'insightLabel' => 'Insight',
-            'insightText' => 'High bloom intensity detected in northern Batu slopes today. Perfect for photography.',
+            'monthLabel' => 'April 2026',
+            'categoryLabel' => 'Wisata Buah & Bunga',
+            'title' => 'Musim Panen Sedang Berlangsung',
+            'description' => 'April adalah waktu yang nyaman untuk menikmati kebun buah dan taman bunga di Batu. Udara pegunungan yang sejuk membuat aktivitas jelajah, petik buah, dan berburu foto terasa lebih menyenangkan. Berdasarkan pilihanmu, kami menyiapkan destinasi terbaik untuk periode ini.',
+            'insightLabel' => 'Sorotan',
+            'insightText' => 'Intensitas mekarnya bunga di lereng utara Batu sedang tinggi minggu ini. Cocok untuk kunjungan santai dan fotografi.',
             'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYL8C7GZgt7_YFv2LND0HcLEQ4a-a-FS8LczSFtOBTYMDfymTs2f5fchtP473OFhtUaTJj53GUUHSZUYljHHS63W6WNlhCEwjzCGA8DU3B1iolIAzDU0d-Fu1knm9O6l1ItM7LWw96VmSr444O4IWFP2qUPv_jWnawWQMKf5IJe3d6fjBYcD4H79r5mRTTg6_oGY8YXwV33CXb7UtP7xuii-gCwgLcjKanA-_Y8vo5OVXV-e3rEviXS92R8fMUCCeSktw2gdZwRWh_',
-            'imageAlt' => 'Batu Orchard',
+            'imageAlt' => 'Kebun di Batu',
         ];
     }
 
@@ -346,11 +346,11 @@ class AgrotourismCatalog
     protected function nearbyInsight(): array
     {
         return [
-            'title' => 'Explore Nearby',
-            'description' => 'There are 12 more agro-destinations within a 5km radius from your current selection.',
-            'countLabel' => '12 Nearby Spots',
+            'title' => 'Jelajahi Sekitar',
+            'description' => 'Masih ada 12 destinasi agrowisata lain dalam radius 5 km dari pilihanmu saat ini.',
+            'countLabel' => '12 Titik Terdekat',
             'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBz5jIy4_Pr-jbJIWOqS3_9I7eEqui0YaHjoB6BcWFtkpcSdvUWoIouDySB6prS1FqHrfNwUtDVyTtIxBGacwSC9FEgfNhGrfY2GOvLwTZ4dPCw-8BcqWOL65aLrqFVZcxal7HZfmPegeqqS7NeJ59qrLMtQIGFKAu13_ZFYBY0XJWjUkEHn5M4oUtpgyJsu02h1ei2Mnna1lztua92v70tCB4MjSvzcGMdtGy6MnJoEG-nV_68LuvojhHskn_2veo2U2aot4me4TVs',
-            'imageAlt' => 'Batu Map',
+            'imageAlt' => 'Peta Batu',
             'href' => '#map',
         ];
     }
@@ -369,7 +369,7 @@ class AgrotourismCatalog
             'wisata-kebun-bunga-coban-talun' => 'Rp 15.000',
             'ladang-bunga-matahari' => 'Rp 12.000',
             'kebun-apel-bumiaji' => 'Rp 25.000',
-            'pusat-bunga-sidomulyo' => 'Free Entry',
+            'pusat-bunga-sidomulyo' => 'Gratis',
         ];
 
         $audienceByCategory = [
@@ -437,9 +437,15 @@ class AgrotourismCatalog
             'Off-Season' => 'off-season',
         ];
 
+        $statusLabelByKey = [
+            'Peak Status' => 'Puncak Musim',
+            'Available' => 'Tersedia',
+            'Off-Season' => 'Luar Musim',
+        ];
+
         $categoryLabelByKey = [
-            'buah' => 'Fruit & Harvest',
-            'bunga' => 'Flower Village',
+            'buah' => 'Wisata Buah',
+            'bunga' => 'Wisata Bunga',
         ];
 
         $ticketPrice = $ticketPriceBySlug[$destination['slug']] ?? ($destination['category'] === 'buah' ? 'Rp 25.000' : 'Rp 15.000');
@@ -452,12 +458,12 @@ class AgrotourismCatalog
             'location' => $destination['location'],
             'locationLabel' => $destination['location'].', Jawa Timur',
             'categoryLabel' => $categoryLabelByKey[$destination['category']],
-            'statusLabel' => $destination['status'],
+            'statusLabel' => $statusLabelByKey[$destination['status']],
             'statusTone' => $statusToneByLabel[$destination['status']],
             'rating' => $this->buildRating($destination),
             'reviewsLabel' => $this->buildReviewLabel($destination),
             'ticketPrice' => $ticketPrice,
-            'bookingLabel' => $ticketPrice === 'Free Entry' ? 'Kunjungi Sekarang' : 'Pesan Tiket Sekarang',
+            'bookingLabel' => $ticketPrice === 'Gratis' ? 'Kunjungi Sekarang' : 'Pesan Tiket Sekarang',
             'description' => $this->buildDetailDescription($destination),
             'stats' => [
                 ['icon' => 'ticket', 'label' => 'HTM Mulai', 'value' => $ticketPrice],
@@ -530,10 +536,10 @@ class AgrotourismCatalog
     protected function buildReviewLabel(array $destination): string
     {
         if ($destination['category'] === 'buah') {
-            return $destination['status'] === 'Peak Status' ? '(2.4k reviews)' : '(1.7k reviews)';
+            return $destination['status'] === 'Peak Status' ? '(2,4 ribu ulasan)' : '(1,7 ribu ulasan)';
         }
 
-        return $destination['status'] === 'Peak Status' ? '(2.1k reviews)' : '(1.5k reviews)';
+        return $destination['status'] === 'Peak Status' ? '(2,1 ribu ulasan)' : '(1,5 ribu ulasan)';
     }
 
     protected function buildFeaturedReview(array $destination): array

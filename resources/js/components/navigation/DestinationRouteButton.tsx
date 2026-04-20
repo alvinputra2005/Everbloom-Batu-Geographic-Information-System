@@ -30,7 +30,7 @@ export default function DestinationRouteButton(props: DestinationRouteButtonProp
         return (
             <button type="button" disabled aria-label={`Cari rute ke ${props.destinationName}`} className={cn(fallbackClassName, props.className)}>
                 <Navigation size={16} />
-                {props.variant === 'full' ? 'Navigate' : null}
+                {props.variant === 'full' ? 'Navigasi' : null}
             </button>
         );
     }

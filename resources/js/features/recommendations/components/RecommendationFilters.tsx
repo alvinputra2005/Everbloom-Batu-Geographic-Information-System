@@ -98,7 +98,7 @@ export default function RecommendationFilters({
             />
 
             <div className="overflow-hidden rounded-xl border border-[var(--rec-outline-variant)]/30 bg-white shadow-sm">
-                <FilterToggle title="Price" isOpen={openSections.price} onClick={() => toggleSection('price')} />
+                <FilterToggle title="Harga Tiket" isOpen={openSections.price} onClick={() => toggleSection('price')} />
                 <RecommendationPriceFilter
                     isOpen={openSections.price}
                     minPriceValue={minPriceValue}
@@ -111,7 +111,7 @@ export default function RecommendationFilters({
             </div>
 
             <div className="overflow-hidden rounded-xl border border-[var(--rec-outline-variant)]/30 bg-white shadow-sm">
-                <FilterToggle title="Nearby Landmarks" isOpen={openSections.landmarks} onClick={() => toggleSection('landmarks')} />
+                <FilterToggle title="Landmark Terdekat" isOpen={openSections.landmarks} onClick={() => toggleSection('landmarks')} />
                 <RecommendationLandmarkFilter
                     isOpen={openSections.landmarks}
                     landmarks={landmarks}

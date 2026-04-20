@@ -12,11 +12,11 @@ import SeasonalConditionPanel from '@/features/destination/components/SeasonalCo
 import type { DestinationDetail } from '@/features/destination/types';
 
 const mobileItems = [
-    { icon: Home, label: 'Home' },
-    { icon: Trees, label: 'Suggest', active: true },
-    { icon: MapIcon, label: 'Map' },
-    { icon: Calendar, label: 'Events' },
-    { icon: Info, label: 'About' },
+    { icon: Home, label: 'Beranda' },
+    { icon: Trees, label: 'Destinasi', active: true },
+    { icon: MapIcon, label: 'Peta' },
+    { icon: Calendar, label: 'Kalender' },
+    { icon: Info, label: 'Tentang' },
 ];
 
 const Nav = () => (

@@ -186,7 +186,7 @@ export default function DestinationRouteButtonClient({
             <DialogTrigger asChild>
                 <button type="button" aria-label={`Cari rute ke ${destinationName}`} className={cn(triggerClassName, className)}>
                     <Navigation size={16} />
-                    {variant === 'full' ? 'Navigate' : null}
+                    {variant === 'full' ? 'Navigasi' : null}
                 </button>
             </DialogTrigger>
 

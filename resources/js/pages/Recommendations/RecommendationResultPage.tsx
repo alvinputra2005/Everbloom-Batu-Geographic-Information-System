@@ -185,17 +185,17 @@ export default function RecommendationResultPage({
 
                             <div className="w-full lg:w-[320px]">
                                 <div className="flex items-center gap-3 rounded-full bg-white/85 px-5 shadow-[0_12px_40px_rgba(27,28,25,0.06)] backdrop-blur-2xl">
-                                    <span className="shrink-0 text-sm font-semibold text-[var(--rec-on-surface)]">Sort By:</span>
+                                    <span className="shrink-0 text-sm font-semibold text-[var(--rec-on-surface)]">Urutkan:</span>
                                     <div className="relative min-w-0 flex-1">
                                         <select
                                             value={sortBy}
                                             onChange={(event) => setSortBy(event.target.value as typeof sortBy)}
                                             className="w-full cursor-pointer appearance-none border-none bg-transparent py-3 pr-8 text-sm font-semibold text-[var(--rec-on-surface)] outline-none"
                                         >
-                                            <option value="recommended">Recommended</option>
-                                            <option value="price-low">Price Low to High</option>
-                                            <option value="price-high">Price High to Low</option>
-                                            <option value="name">Name (A-Z)</option>
+                                            <option value="recommended">Rekomendasi</option>
+                                            <option value="price-low">Harga Terendah</option>
+                                            <option value="price-high">Harga Tertinggi</option>
+                                            <option value="name">Nama (A-Z)</option>
                                         </select>
                                         <ChevronDown className="pointer-events-none absolute top-1/2 right-0 h-4 w-4 -translate-y-1/2 text-[var(--rec-primary)]" />
                                     </div>
