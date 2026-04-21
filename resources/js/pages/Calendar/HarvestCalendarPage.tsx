@@ -49,14 +49,14 @@ const navbarItems: NavbarItem[] = [
     { label: 'Beranda', href: '/' },
     { label: 'Destinasi', href: '/destinations' },
     { label: 'Kalender', href: '/calendar', active: true },
-    { label: 'Tentang', href: '/#about' },
+    { label: 'Tentang', href: '/tentang' },
 ];
 
 const mobileNavItems: MobileBottomNavItem[] = [
     { label: 'Beranda', href: '/', icon: 'home' },
     { label: 'Destinasi', href: '/destinations', icon: 'explore' },
     { label: 'Kalender', href: '/calendar', icon: 'calendar', active: true },
-    { label: 'Tentang', href: '/#about', icon: 'about' },
+    { label: 'Tentang', href: '/tentang', icon: 'about' },
 ];
 
 interface HarvestCalendarPageProps {

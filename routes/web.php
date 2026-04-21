@@ -19,6 +19,10 @@ Route::get('/destinations/{slug}', [DestinationController::class, 'show'])->name
 
 Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar');
 
+Route::get('/tentang', function () {
+    return Inertia::render('About/AboutPage');
+})->name('about');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');

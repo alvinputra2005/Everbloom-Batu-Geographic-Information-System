@@ -106,7 +106,7 @@ export default function DestinationDetailPage({ destination }: DestinationDetail
     }
 
     return (
-        <div className="destination-detail-experience min-h-screen pb-32">
+        <div className="destination-detail-experience min-h-screen pb-32 md:pb-5">
             <Head title={destination.title} />
             <Nav />
             <DestinationHero destination={destination} />
@@ -155,9 +155,7 @@ export default function DestinationDetailPage({ destination }: DestinationDetail
                     </motion.div>
                 </div>
             </main>
-            <div className="px-6 pb-40 md:pb-44">
-                <Footer className="mx-auto mt-16 max-w-7xl rounded-[2.5rem]" />
-            </div>
+            <Footer className="mt-16 pb-5 md:pb-5" />
             {/* <BottomBar bookingLabel={destination.bookingLabel} /> */}
             <MobileNav />
         </div>

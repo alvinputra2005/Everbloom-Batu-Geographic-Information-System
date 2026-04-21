@@ -1,5 +1,4 @@
 import { Link, usePage } from '@inertiajs/react';
-import { Bell, CircleUserRound } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -19,11 +18,8 @@ const defaultItems: NavbarItem[] = [
     { label: 'Beranda', href: '/' },
     { label: 'Destinasi', href: '/destinations' },
     { label: 'Kalender', href: '/calendar' },
-    { label: 'Tentang', href: '#about' },
+    { label: 'Tentang', href: '/tentang' },
 ];
-
-const iconButtonClassName =
-    'inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--app-primary)] transition hover:bg-[var(--app-surface-muted)]';
 
 export default function Navbar({ brand = 'Everbloom', items = defaultItems, className }: NavbarProps) {
     const { url } = usePage();
@@ -62,16 +58,23 @@ export default function Navbar({ brand = 'Everbloom', items = defaultItems, clas
 
                 <div className="hidden items-center gap-8 text-l font-medium tracking-tight md:flex">
                     {items.map((item) => (
-                        <Link
-                            key={`${item.label}-${item.href}`}
-                            href={item.href}
-                            className={cn(
-                                'border-b-2 border-transparent pb-1 text-[var(--app-text-muted)] transition-colors hover:text-[var(--app-primary)]',
-                                isItemActive(item) && 'border-[var(--app-primary)] font-bold text-[var(--app-primary)]',
-                            )}
-                        >
-                            {item.label}
-                        </Link>
+                        <div key={`${item.label}-${item.href}`} className="relative">
+                            <Link
+                                href={item.href}
+                                className={cn(
+                                    'relative inline-flex pb-1 text-[var(--app-text-muted)] transition-colors duration-300 hover:text-[var(--app-primary)]',
+                                    isItemActive(item) && 'font-bold text-[var(--app-primary)]',
+                                )}
+                            >
+                                {item.label}
+                                <span
+                                    className={cn(
+                                        'absolute inset-x-0 -bottom-0.5 h-0.5 origin-center rounded-full bg-[var(--app-primary)] transition-transform duration-300',
+                                        isItemActive(item) ? 'scale-x-100' : 'scale-x-0',
+                                    )}
+                                />
+                            </Link>
+                        </div>
                     ))}
                 </div>
 

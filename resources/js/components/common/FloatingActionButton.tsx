@@ -10,7 +10,7 @@ interface FloatingActionButtonProps {
 }
 
 export default function FloatingActionButton({
-    href = '#map',
+    href = '/#map',
     label = 'Buka peta lokasi',
     className,
 }: FloatingActionButtonProps) {

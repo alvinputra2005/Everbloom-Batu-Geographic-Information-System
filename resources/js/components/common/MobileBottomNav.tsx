@@ -24,10 +24,10 @@ const iconMap = {
 };
 
 const defaultItems: MobileBottomNavItem[] = [
-    { label: 'Home', href: '/', icon: 'home' },
-    { label: 'Explore', href: '/destinations', icon: 'explore' },
-    { label: 'Calendar', href: '/calendar', icon: 'calendar' },
-    { label: 'About', href: '#about', icon: 'about' },
+    { label: 'Beranda', href: '/', icon: 'home' },
+    { label: 'Destinasi', href: '/destinations', icon: 'explore' },
+    { label: 'Kalender', href: '/calendar', icon: 'calendar' },
+    { label: 'Tentang', href: '/tentang', icon: 'about' },
 ];
 
 export default function MobileBottomNav({ items = defaultItems, className }: MobileBottomNavProps) {
