@@ -4,6 +4,7 @@ use App\Models\Category;
 use App\Models\Destination;
 use App\Support\AgrotourismCatalog;
 use Database\Seeders\DestinationSeeder;
+use Illuminate\Support\Facades\DB;
 
 it('loads home and recommendation destinations from the database', function () {
     $this->seed(DestinationSeeder::class);
@@ -20,6 +21,27 @@ it('loads home and recommendation destinations from the database', function () {
         ->and($recommendations)->toHaveCount(8)
         ->and($recommendations[0]['name'])->toBe('Kebun Apel Bumiaji')
         ->and($recommendations[0]['priceValue'])->toBe(25000);
+});
+
+it('builds featured home categories without reloading the same destination catalog', function () {
+    $this->seed(DestinationSeeder::class);
+
+    DB::flushQueryLog();
+    DB::enableQueryLog();
+
+    app(AgrotourismCatalog::class)->homeDestinations();
+
+    $homeQueryCount = count(DB::getQueryLog());
+
+    DB::flushQueryLog();
+
+    app(AgrotourismCatalog::class)->featuredHomeDestinationsByCategory();
+
+    $featuredQueryCount = count(DB::getQueryLog());
+
+    DB::disableQueryLog();
+
+    expect($featuredQueryCount)->toBe($homeQueryCount);
 });
 
 it('builds destination detail data from the seeded destination record', function () {

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Builder;
 
 class AgrotourismCatalog
 {
+    protected ?array $homeDestinationsCache = null;
+
     public function filters(): array
     {
         return [
@@ -18,7 +20,7 @@ class AgrotourismCatalog
 
     public function homeDestinations(): array
     {
-        return $this->destinationQuery()
+        return $this->homeDestinationsCache ??= $this->destinationQuery()
             ->whereHas('display', fn (Builder $query) => $query->whereNotNull('home_sort_order'))
             ->get()
             ->sortBy(fn (Destination $destination) => $destination->display?->home_sort_order ?? PHP_INT_MAX)
@@ -29,10 +31,12 @@ class AgrotourismCatalog
 
     public function featuredHomeDestinationsByCategory(): array
     {
+        $destinations = $this->homeDestinations();
+
         return [
-            'all' => $this->featuredHomeDestinations('all'),
-            'buah' => $this->featuredHomeDestinations('buah'),
-            'bunga' => $this->featuredHomeDestinations('bunga'),
+            'all' => $this->featuredHomeDestinations($destinations, 'all'),
+            'buah' => $this->featuredHomeDestinations($destinations, 'buah'),
+            'bunga' => $this->featuredHomeDestinations($destinations, 'bunga'),
         ];
     }
 
@@ -68,10 +72,8 @@ class AgrotourismCatalog
         ];
     }
 
-    protected function featuredHomeDestinations(string $category): array
+    protected function featuredHomeDestinations(array $destinations, string $category): array
     {
-        $destinations = $this->homeDestinations();
-
         if ($category === 'buah' || $category === 'bunga') {
             return array_values(array_filter($destinations, fn (array $destination) => $destination['category'] === $category));
         }
