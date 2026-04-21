@@ -32,6 +32,8 @@ export default function DestinationCard({ destination, className }: DestinationC
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         src={destination.image}
                         alt={destination.title}
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div
                         className={cn(

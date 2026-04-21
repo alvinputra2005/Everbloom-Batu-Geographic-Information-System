@@ -20,7 +20,22 @@ class AgrotourismCatalog
 
     public function homeDestinations(): array
     {
-        return $this->homeDestinationsCache ??= $this->destinationQuery()
+        return $this->homeDestinationsCache ??= Destination::query()
+            ->select([
+                'id',
+                'slug',
+                'title',
+                'tags',
+                'status',
+                'description',
+                'category_id',
+            ])
+            ->with([
+                'category:id,key',
+                'visitInfo:destination_id,location,opening_time',
+                'media:destination_id,image_path',
+                'display:destination_id,home_sort_order',
+            ])
             ->whereHas('display', fn (Builder $query) => $query->whereNotNull('home_sort_order'))
             ->get()
             ->sortBy(fn (Destination $destination) => $destination->display?->home_sort_order ?? PHP_INT_MAX)
@@ -372,19 +387,19 @@ class AgrotourismCatalog
 
     protected function mapHomeDestination(Destination $destination): array
     {
-        $mapped = $this->mapStoredDestination($destination);
+        $visitInfo = $destination->visitInfo;
+        $media = $destination->media;
 
         return [
-            'slug' => $mapped['slug'],
-            'image' => $mapped['image'],
-            'title' => $mapped['title'],
-            'location' => $mapped['location'],
-            'coordinates' => $mapped['coordinates'],
-            'tags' => $mapped['tags'],
-            'status' => $mapped['status'],
-            'time' => 'Buka '.$mapped['openingTime'],
-            'category' => $mapped['category'],
-            'description' => $mapped['description'],
+            'slug' => $destination->slug,
+            'image' => $this->resolveImagePath($media?->image_path ?? ''),
+            'title' => $destination->title,
+            'location' => $visitInfo?->location ?? '',
+            'tags' => $destination->tags,
+            'status' => $destination->status,
+            'time' => 'Buka '.($visitInfo?->opening_time ?? '08:00'),
+            'category' => $destination->category?->key ?? '',
+            'description' => $destination->description,
         ];
     }
 

@@ -59,6 +59,8 @@ export default function HighlandRhythmSection() {
                             alt="Batu Seasonal Harvest Fruits"
                             className="aspect-[1.2/1] w-full object-cover"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaAM0qafZVLQZXpFXeLnRvWi3OzK7OQ6hAkKlncF51DYSHLC9jpwh6ZjPFhP2hBNxfZmWkGYS2MJ_Tto8qxQp5uIGI6LM8r7RqheAF1WSd-3wDH3rcZKWuzQud9VNZvZgWZ9DrICqte_Swq3wx9gavqIISCuRAOS2Meg4p_kgPXSSZfxljOohBmn3bkPbMckRM8cOt8nOXaDjj9BB20rNV0vs4g4MEP_vrhGwpHVILprtoRvYuKEPU6ktZwSGqgn_Ki9JAXNUvpvQO"
+                            loading="lazy"
+                            decoding="async"
                             referrerPolicy="no-referrer"
                         />
                         <div className="absolute right-6 bottom-6 left-6 flex gap-4">

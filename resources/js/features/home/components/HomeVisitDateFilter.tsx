@@ -3,8 +3,9 @@ import { format } from 'date-fns';
 import { id as indonesianLocale } from 'date-fns/locale';
 import { CalendarDays, ChevronDown } from 'lucide-react';
 import { motion } from 'motion/react';
-import { DayPicker } from 'react-day-picker';
-import 'react-day-picker/style.css';
+import { lazy, Suspense } from 'react';
+
+const HomeVisitDatePickerPanel = lazy(() => import('./HomeVisitDatePickerPanel'));
 
 interface HomeVisitDateFilterProps {
     selectedDate: Date | null;
@@ -35,20 +36,9 @@ export default function HomeVisitDateFilter({ selectedDate, onSelectDate }: Home
                             transition={{ duration: 0.2 }}
                             className="ambient-bloom absolute top-full left-0 z-100 mt-4 w-max min-w-full max-w-[calc(100vw-3rem)] overflow-hidden rounded-[1.75rem] border border-[color:rgba(19,82,39,0.12)] bg-white p-5"
                         >
-                            <DayPicker
-                                mode="single"
-                                locale={indonesianLocale}
-                                selected={selectedDate ?? undefined}
-                                defaultMonth={selectedDate ?? new Date()}
-                                showOutsideDays
-                                onSelect={(date) => {
-                                    onSelectDate(date ?? null);
-                                    if (date) {
-                                        close();
-                                    }
-                                }}
-                                className="home-day-picker"
-                            />
+                            <Suspense fallback={<div className="px-6 py-8 text-sm text-[var(--app-text-muted)]">Memuat kalender...</div>}>
+                                <HomeVisitDatePickerPanel selectedDate={selectedDate} onSelectDate={onSelectDate} onClose={close} />
+                            </Suspense>
                         </PopoverPanel>
                     ) : null}
                 </>

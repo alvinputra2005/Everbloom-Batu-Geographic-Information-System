@@ -14,19 +14,19 @@ interface JourneyStep {
 
 const journeySteps: JourneyStep[] = [
     {
-        icon: <img src={cekKondisiIcon} alt="Cek kondisi" className="h-9 w-9 object-contain md:h-10 md:w-10" />,
+        icon: <img src={cekKondisiIcon} alt="Cek kondisi" className="h-9 w-9 object-contain md:h-10 md:w-10" loading="lazy" decoding="async" />,
         title: '1. Cek kondisi',
         desc: 'Periksa kondisi panen, musim mekar, dan kesiapan kunjungan di berbagai destinasi agrowisata Kota Batu.',
         color: 'bg-[color:rgba(19,82,39,0.1)]',
     },
     {
-        icon: <img src={tentukanTanggalKunjunganIcon} alt="Tentukan tanggal kunjungan" className="h-9 w-9 object-contain md:h-10 md:w-10" />,
+        icon: <img src={tentukanTanggalKunjunganIcon} alt="Tentukan tanggal kunjungan" className="h-9 w-9 object-contain md:h-10 md:w-10" loading="lazy" decoding="async" />,
         title: '2. Tentukan Tanggal Kunjungan',
         desc: 'Pilih tanggal kunjungan pada periode panen atau masa mekar terbaik agar pengalaman wisatamu lebih maksimal.',
         color: 'bg-[color:rgba(19,82,39,0.1)]',
     },
     {
-        icon: <img src={nikmatiWisataAlamIcon} alt="Nikmati wisata alam" className="h-9 w-9 object-contain md:h-10 md:w-10" />,
+        icon: <img src={nikmatiWisataAlamIcon} alt="Nikmati wisata alam" className="h-9 w-9 object-contain md:h-10 md:w-10" loading="lazy" decoding="async" />,
         title: '3. Nikmati Wisata Alam',
         desc: 'Datang ke destinasi pilihanmu dan nikmati pengalaman agrowisata secara langsung.',
         color: 'bg-[color:rgba(19,82,39,0.1)]',

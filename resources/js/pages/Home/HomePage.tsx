@@ -11,13 +11,24 @@ import MainLayout from '@/layouts/MainLayout';
 
 interface HomePageProps {
     filters: HomeDestinationFilter[];
-    featuredDestinationsByCategory: Partial<Record<HomeDestinationCategory, HomeDestination[]>>;
+    featuredDestinations: HomeDestination[];
 }
 
-export default function HomePage({ filters, featuredDestinationsByCategory }: HomePageProps) {
+function filterFeaturedDestinations(destinations: HomeDestination[], category: HomeDestinationCategory) {
+    if (category === 'buah' || category === 'bunga') {
+        return destinations.filter((destination) => destination.category === category);
+    }
+
+    const fruit = destinations.filter((destination) => destination.category === 'buah').slice(0, 3);
+    const flower = destinations.filter((destination) => destination.category === 'bunga').slice(0, 3);
+
+    return [...fruit, ...flower];
+}
+
+export default function HomePage({ filters, featuredDestinations }: HomePageProps) {
     const [activeCategory, setActiveCategory] = useState<HomeDestinationCategory>(filters[0]?.key ?? 'all');
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-    const featuredDestinations = featuredDestinationsByCategory[activeCategory] ?? [];
+    const visibleDestinations = filterFeaturedDestinations(featuredDestinations, activeCategory);
 
     return (
         <MainLayout>
@@ -28,7 +39,7 @@ export default function HomePage({ filters, featuredDestinationsByCategory }: Ho
                 <PopularDestinationsSection
                     activeCategory={activeCategory}
                     filters={filters}
-                    featuredDestinations={featuredDestinations}
+                    featuredDestinations={visibleDestinations}
                     onCategoryChange={setActiveCategory}
                 />
                 <HighlandRhythmSection />

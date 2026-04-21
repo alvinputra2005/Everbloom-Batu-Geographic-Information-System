@@ -38,6 +38,9 @@ export default function HeroSection({ selectedDate, onSelectDate, filters }: Her
                     className="h-full w-full object-cover"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwLhuMosBTipjZ3CDGaYP5ufns7vppRPml7D21vLlAG3GKY8JEcUP7ZMgGuSrqnaMRUiNic8XbvW5iwkWfcyjYlrWqRBljGeiZTYvMjqgcdaY9U2a8B6QGFcbr-rVbbjLfAzoISeCPvNwR1BEn7hY4zL9BOrnVK_Xb8BInUVlS9QYNy_7NHKL7XNc1uecmNIIKqCq1WfT8RSk646-ZgkkwGQfLoqmK6zFXMmonb9vGWFC0pY4MemO0duWrb1-EacZXsmV8PtNzQjbY"
                     alt="Batu City Valley"
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                 />
             </div>

@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         return Inertia::render('Home/HomePage', [
             'filters' => $this->catalog->filters(),
-            'featuredDestinationsByCategory' => $this->catalog->featuredHomeDestinationsByCategory(),
+            'featuredDestinations' => $this->catalog->homeDestinations(),
         ]);
     }
 }
