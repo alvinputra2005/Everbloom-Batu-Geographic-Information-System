@@ -194,7 +194,7 @@ export default function HarvestCalendarPage({ insightMonths, commodities }: Harv
                             animate={{ opacity: 1, y: 0 }}
                             className="mb-4 text-4xl font-bold tracking-tight text-[var(--app-primary)] md:text-6xl"
                         >
-                            Kalender Musim Agro Batu
+                            Kalender Musim Agrowisata Batu
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}

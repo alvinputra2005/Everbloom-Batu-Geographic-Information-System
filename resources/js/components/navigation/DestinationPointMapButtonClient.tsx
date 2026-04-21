@@ -52,9 +52,6 @@ export default function DestinationPointMapButtonClient({ destinationName, coord
                         <MapIcon className="h-5 w-5" />
                         Titik Lokasi {destinationName}
                     </DialogTitle>
-                    <DialogDescription className="text-sm text-[var(--detail-on-surface-variant)]">
-                        Peta ini menampilkan titik presisi destinasi saja.
-                    </DialogDescription>
                 </DialogHeader>
 
                 <div className="max-h-[calc(100dvh-8rem)] space-y-4 overflow-y-auto px-5 py-5 pb-6 sm:max-h-[calc(90vh-8rem)] sm:px-6">

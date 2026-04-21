@@ -196,9 +196,6 @@ export default function DestinationRouteButtonClient({
                         <Route className="h-5 w-5" />
                         Rute ke {destinationName}
                     </DialogTitle>
-                    <DialogDescription className="text-sm text-[var(--detail-on-surface-variant)]">
-                        Sistem akan memakai GPS perangkatmu dan OSRM untuk menghitung rute mobil terbaik menuju destinasi ini.
-                    </DialogDescription>
                 </DialogHeader>
 
                 <div className="max-h-[calc(100dvh-8rem)] overflow-y-auto px-5 py-5 pb-6 sm:max-h-[calc(90vh-8rem)] sm:px-6">
@@ -334,7 +331,7 @@ export default function DestinationRouteButtonClient({
                                 className="chlorophyll-gradient inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white"
                             >
                                 <ExternalLink className="h-4 w-4" />
-                                Buka di Google Maps
+                                Google Maps
                             </a>
                         </div>
                     </DialogFooter>
